@@ -52,6 +52,168 @@ Linux内核版本就是核心版本，它由 [Linux内核官网](https://www.ker
 
 VMware安装完成之后打开应该是上面这样的，这里我们主要介绍三个功能，首先是左边一半重点便捷的**“从光盘或映像安装”**，这个功能没什么好说，给一个iso镜像文件然后就一路向西的安装完成了，其次是**“导入现有虚拟机”**，如果你已经有安装好的虚拟机文件(ps:使用虚拟机安装系统的时候会生成一个文件保存安装的系统数据信息)那么可以直接通过这个功能加载出来，最后是**“创建自定义虚拟机”**，这个功能就相当于你去电脑市场买了一个只有boot系统的电脑，里面并没有操作系统，需要你手动安装。我们下面安装Linux系统的时候也使用该功能。
 
-#### 2、Linux系统安装
+#### 2、系统分区
 
+在进行Linux系统安装之前我们先要搞清楚一个问题，那就是系统分区。下面简单介绍一下系统分区的类型：
+
+* 主分区：由硬盘硬件决定了主分区最多只能有4个
+* 扩展分区：扩展分区最多只能有一个，并且主分区加扩展分区最多只能有4个，另外扩展分区不能写入数据，只能包含逻辑分区
+* 逻辑分区
+
+我们都知道在Windows中硬盘分区的时候需要指定盘符，例如：系统分区用字母C作为盘符，其他的用D、E、F以此类推，但是在Linux中我们把这个盘符称为**“挂载点”**，把一个硬盘分区让Linux系统读取到的过程称作**“挂载”**。关于Linux系统分区的要求如下：
+
+* 必须分区：
+ 1. / (根分区) 
+ 2. swap分区 (交换分区，一般物理机内存4GB以下时建议为内存的2倍，物理机内存超过4GB时建议和物理机内存大小一致即可)
+* 推荐分区：
+  1. /boot (启动分区，200MB)
+
+那么是不是说一块硬盘分区之后就使用了呢？不是的！做好分区之后还需要做另外一件事情，格式化。
+
+格式化：又称逻辑格式化，它是指根据用户选定的文件系统（如FAT32、NTFS、EXT4等），在磁盘的特定区域写入特定的数据，从而在分区中划出一块用于存放文件分配表、目录表等用于文件管理的磁盘空间的过程；
+
+> 注意：这里有一个误区，很多人认为格式化是用来清空分区里的数据的，其实并不是这样，虽然格式化会清空分区里的数据，但是格式化的根本目的是为了写入文件系统。
+
+#### 3、Linux系统安装
+
+安装好虚拟机并且了解了系统分区知识后我们才可以进行科学的Linux系统安装。
+
+##### 3.1 创建虚拟机
+
+在前面我们已经安装好了VMware，启动它，选择**“创建自定义虚拟机”**，点击**“继续”**，之后看到如下画面：
+
+![VMware_chos-c](http://pbe07x0ww.bkt.clouddn.com/VMware_chos.png)
+
+然后选择**“Linux”**->**“CentOS 64位”**点击**“继续”**，画面如下：
+
+![VMware_chhd-c](http://pbe07x0ww.bkt.clouddn.com/VMware_chhd.png)
+
+选择**“新建虚拟磁盘”**，点击**“继续”**，就可以完成虚拟机的创建了，出现如下画面，点击**“完成”**，选择好虚拟机文件存放路径，即可完成虚拟机的创建。
+
+![VMware_finish-c](http://pbe07x0ww.bkt.clouddn.com/VMware_finish.png)
+
+##### 3.2 安装Linux
+
+和Windows或者macOS操作系统一样，安装都需要一个系统镜像来完成安装，我们可以从[CentOS官网](https://www.centos.org/)下载各种版本的系统镜像，本教程使用的系统镜像是[CentOS 6.9 64位](http://vault.centos.org/6.9/isos/x86_64/)
+
+下载好系统镜像之后，打开刚安装好的虚拟机，点击**“设置”**按钮，打开设置面板：
+
+![VMware_st-c](http://pbe07x0ww.bkt.clouddn.com/VMware_st.png)
+
+选择**“CD/DVD(IDE)”**：
+
+![VMware_cd-c](http://pbe07x0ww.bkt.clouddn.com/VMware_cd.png)
+
+勾选“连接 CD/DVD 驱动器”，然后下拉选择“选择一个光盘或光盘映像...”，选择我们下载好的系统镜像：
+
+![VMware_sel_iso-c](http://pbe07x0ww.bkt.clouddn.com/VMware_sel_iso.png)
+
+![VMware_iso-c](http://pbe07x0ww.bkt.clouddn.com/VMware_iso.png)
+
+这就跟我们平时安装电脑在光驱里插入系统光盘一样，下面我们就可以启动虚拟机进行Linux系统安装了。
+
+启动虚拟机，虚拟机会自动读取光驱里的系统镜像，从而启动Linux系统的安装程序，如下图：
+
+![CentOS_install_start-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_start.png)
+
+默认选择第一项即可，直接回车，会出现这样一个镜像数据完整性检测界面，简单的说就是用来检测你下载的这个系统镜像是不是可以使用，这里我们一般都认为是可用的不再进行检测，所以直接选择**“Skip”**：
+
+![CentOS_install_check-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_check.png)
+
+之后就很简单了，一路**“Next”**就行：
+
+![CentOS_installz_wel-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_installz_wel.png)
+
+![CentOS_install_lan-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_lan.png)
+
+![CentOS_install_kb-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_kb.png)
+
+![CentOS_install_bs-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_bs.png)
+
+下面这里需要注意一下，如果曾经虚拟机安装过可能会有这个提示，直接忽略掉就可以了，选择**“是，忽略所有数据”**，然后点击**“下一步”**：
+
+![CentOS_install_dc-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_dc.png)
+
+下面这里的主机名默认就好，因为对于Linux来说同一个局域网里并不是靠主机名来进行通信的，所以同一个局域网里可以有多个主机名相同的Linux计算机，这一点和Windows不一样。继续**“下一步”**：
+
+![CentOS_install_host-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_host.png)
+
+![CentOS_install_time-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_time.png)
+
+![CentOS_install_pwd-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_pwd.png)
+
+在上面设置好密码之后就到下面选择安装类型了，其实就是选择分区方式，这里前面我们讲了关于Linux系统分区的相关知识，所以我们选择**“创建自定义布局”**，然后点击**“下一步”**：
+![CentOS_install_layout-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout.png)
+
+下一步之后我们看到了如下的图形化分区界面，选择**“空闲”**的硬盘驱动器，点击**“创建”**来创建我们想要的分区：
+![CentOS_install_layout_start-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_start.png)
+
+选择**“标准分区”**，点击**“创建”**：
+
+![CentOS_install_layout_c-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_c.png)
+
+选择好**“挂载点”**和**“大小”**，点击**“确定”**：
+
+![CentOS_install_layout_hm](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_hm.png)
+
+重复上面的创建分区操作，根据之前说的系统分区要求做好分区后点击**“下一步”**，完整的分区创建完成后如下图：
+
+![CentOS_install_full_lay-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_full_lay.png)
+
+选择**“格式化”**，点击**“下一步”**：
+
+![CentOS_install_fm-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_fm.png)
+
+选择**“将修改写入磁盘”**，点击**“下一步”**：
+
+![CentOS_install_wr-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_wr.png)
+
+![CentOS_install_in-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_in.png)
+
+下面这里选择安装方式需要注意一下，这几种安装方式的说明如下：
+
+* Desktop：基本的桌面系统，包括常用的桌面软件，如文档查看工具、浏览器等
+* Minimal Desktop：基本的桌面系统，包含的软件较少
+* Minimal：基本的系统，不含有任何可选的软件包
+* Basic Server：安装的基本系统的平台支持，不包含桌面
+* Database Server：基本系统平台，加上MySQL和PostgreSQL数据库，无桌面
+* Web Server：基本系统平台，加上PHP，Web server，还有MySQL和PostgreSQL数据库的客户端，无桌面
+* Virtual Host：基本系统加虚拟平台
+* Software Development Workstation：包含软件包较多，基本系统，虚拟化平台，桌面环境，开发工具
+
+> 这里需要说明的是服务器上安装的时候一般都是选择Minimal只进行最小安装，系统安装完成后需要什么软件装什么软件；
+> 但是由于我们初学者对Linux软件安装并不熟悉，所以我们为了后面的讲解方便，我们这里就选择Basic Server，这样安装完成就包含了一些基本的软件包，使用起来更方便；
+
+选择**“Basic Server”**，点击**“下一步”**：
+![CentOS_install_basic-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_basic.png)
+
+下面就启动了系统安装程序，静静的等待就好...
+
+![CentOS_install_ing0-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing0.png)
+
+![CentOS_install_ing1-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing1.png)
+
+![CentOS_install_ing2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing2.png)
+
+经过了上面漫长的等待，出现下面的画面，我们就完成了Linux系统的安装，点击**“重新引导”**：
+
+![CentOS_install_cmp-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_cmp.png)
+
+重新引导完成后，CentOS系统启动，启动成功后界面如下，只有一个命令行字符界面，其他什么都没有:
+
+![CentOS_start-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_start.png)
+
+我们输入用户名：root和密码即可登录，登录成功后如下图：
+
+![CentOS_login-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_login.png)
+
+安装完成之后在`/root`目录下有三个安装日志文件，说明如下：
+
+> `/root/install.log`：存储了安装在系统中的软件包及其版本信息
+> `/root/install.log.syslog`：存储了安装过程中留下的事件记录
+> `/root/anaconda-ks.cfg`：以Kickstart配置文件的格式记录安装过程中设置的选项信息（用作网络批量安装）
+
+OK，到此为止，我们学习Linux的旅程已经踏出了第一步，Linux系统安装完成。
+
+### 三、Linux网络管理
 
