@@ -392,3 +392,91 @@ DNS配置文件路径为：`/etc/resolve.conf`，该配置文件说明如下：
 
 OK，到这里为止，Linux网络管理我们就全部讲完了！！
 
+## 五、Linux 用户管理
+
+在完成了网络配置这一小小的难关之后，我们讲是不是就可以开始使用我们的Linux系统了呢？其实理论上是可以了，但生活嘛，总是理想很丰满，现实很骨干啊！不知道大家有没有留意到一个细节，就是我们在安装Linux系统的时候从来没有要求过我们输入用户名，只是让我们输入了一个密码而已，咦，这好像跟我们安装界面话的操作系统，比如：Windows或者macOS 似乎都不太一样哎，这是为什么呢？OK，下面我们就来学习一下Linux的用户管理。
+
+### 1、用户与用户组
+
+现在解释一下为什么之前安装Linux的时候没有让我们输入用户名，这是因为Linux采用无界面化安装的时候她并不会主动为我们分配用户，她会为自己创建一个统一的`root`用户，她认为剩下的事情都应该由`root`用户来操作，同时也给这个`root`用户赋予了极大的权限，后面我们讲到**Linux 权限管理**的时候大家就会体会到这个`root`用户是有多无敌，多寂寞了。也正是因为这一点我们才需要管理好我们Linux的用户。
+
+简单的说，用户就是使用该操作系统的人，而用户组是指具有相同权限的一组用户。我们一开始就说**“Linux一切皆文件！”**，那么用户和用户组对应的文件又在哪里呢？在开始讲这些文件之前，我需要大家先了解一个Linux文件编辑器——***VIM***，这里不会赘述怎么使用这个编辑器，请大家自行参考：[简明 VIM 练级攻略](https://coolshell.cn/articles/5426.html)
+
+#### 1.1 用户组信息文件
+
+当前系统中所有用户组信息都保存在`/etc/group`这个文件中，执行`vim /etc/group`可以看到如下内容：
+
+![CentOS_etc_group-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_group.png)
+
+每一行的内容以冒号分隔，释义如下：
+
+| group | x | 123 | abc,def,xyz |
+| --- | --- | --- | --- |
+| 组名称 | 组密码占位符 | 组编号 | 组中用户列表 |
+
+> 组密码占位符：一定是x
+> 组编号：root用户组的编号一定是0，1~499是系统预留组编号，一般是预留给安装的软件或服务的。
+> 组中用户列表：为空并不代表该组中就一定没有用户，因为如果该组中有且仅有一个用户，并且用户名和组名一致，这时候是可以省略的
+
+#### 1.2 用户组的密码信息文件
+
+当前系统中所有用户组的密码信息都保存在`/etc/gshadow`这个文件中，执行`vim /etc/gshadow`可以看到如下内容：
+
+![CentOS_etc_gshadow-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_gshadow.png)
+
+与用户组信息一样，每一行的内容以冒号分隔，释义如下：
+
+| group | 空/* | 空 | abc,def,xyz |
+| --- | --- | --- | --- |
+| 组名称 | 组密码 | 组管理者 | 组中用户列表 |
+
+> 组密码：为空或为*号的时候都表示当前组没有密码
+> 组管理者：一般都为空，表示组内任何用户都可以管理该组
+
+#### 1.3 用户信息文件
+
+当前系统中所有用户信息都保存在`/etc/passwd`这个文件中，执行`vim /etc/passwd`可以看到如下内容：
+
+![CentOS_etc_passwd-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_passwd.png)
+
+同样，每一行的内容以冒号分隔，释义如下：
+
+
+| user | x | 123 | 456 | xxx | /home/user | /bin/bash |
+| --- | --- | --- | --- | --- | --- | --- |
+| 用户名 | 密码占位符 | 用户编号 | 用户组编号 | 用户注释信息 | 用户家目录 | shell类型 |
+
+> 用户家目录：创建用户时系统会自动在/home目录下创建一个与用户名同名的目录作为用户的家目录，用户登录系统时自动到该目录下
+> shell类型：用来指定用户登录时执行命令的方式，一般是bash
+
+#### 1.4 用户密码信息文件
+
+当前系统中所有用户信息都保存在`/etc/shadow`这个文件中，执行`vim /etc/shadow`可以看到如下内容：
+
+![CentOS_etc_shadow-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_shadow.png)
+
+这个文件就没什么好说的了，其中第二个字段就表示用户密码，采用的是hash加盐的加密方式。
+
+OK，和用户和用户组相关的文件都介绍完了，这几个文件我们只要了解就行，一般不会去修改它，因为我们操作用户和用户组都有其他方式。
+
+### 2、基本命令
+
+与操作用户组相关的基本命令如下：
+
+* `groups [username]`: 查看用户所属组，不写参数默认查看当前登录用户所属组
+* `groupadd groupname`: 添加用户组
+* `groupdel groupname`: 删除用户组
+* `groupmod -n [new_groupname] [old_groupname]`: 修改用户组名称
+* `groupmod -g groupid groupname`: 修改用户组id
+
+与操作用户相关的基本命令如下：
+
+* `useradd username`: 添加用户，默认添加用户时会创建一个同名用户组，添加的用户属于该用户组，同时在/home目录下会创建一个同名目录为该用户的家目录
+* `useradd -g groupname username`: 添加用户到指定用户组
+* `useradd -d /home/xxx username`: 添加用户时指定家目录
+* `userdel username`: 删除用户
+* `userdel -r username`: 删除用户同时删除用户的家目录
+* `usermod -l new_username old_username`: 修改用户名
+* `usermod -d /home/xxx username`: 修改用户家目录
+* `usermod -g groupname username`: 修改用户所属组
+
