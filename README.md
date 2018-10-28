@@ -604,3 +604,125 @@ OK，和用户和用户组相关的文件都介绍完了，这几个文件我们
 
 > Tips：`.tar.gz`也是Linux软件源码包最常见的压缩格式。
 
+### 3、软件包安装
+
+在Linux中，软件包分为源码包和二进制包（RPM包）两种，其实本来就只有源码包一种，但是由于源码包安装需要经过配置、编译、安装这些繁琐的步骤，安装速度极其慢，而且很容易报错，所以才出现了二进制包，它其实就是由源码包配置编译来的。Linux的安装镜像里就已经包含了所有编译好的RPM包供我们直接安装使用，我们只有将系统镜像挂载进来就可以了。
+
+#### 3.1 RPM包手动安装
+
+RPM包安装命令为：`rpm -ivh 包全名`，选项释义如下：
+
+* -i: install 安装
+* -v: verbose 显示详细信息
+* -h: hash 显示进度
+
+命令很简单，但是过程一点都不简单，下面我们用一个小示例来看一下RPM包的安装过程：
+
+![CentOS_rpm_httpd_1-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_1.png)
+
+![CentOS_rpm_httpd_2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_2.png)
+
+![CentOS_rpm_httpd_3-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_3.png)
+
+从上面的安装过程中我们可以看到，RPM包之间还有依赖关系，而且错综复杂，难以捉摸，所以如果按照这种方式去装软件，那估计软件安装好黄花菜都凉了~
+
+### 3.2 yum在线安装
+
+为了解决上面RPM包安装过程繁琐的问题，Linux将所有软件包放到官方服务器上，并且开发了一个yum安装工具，当进行yum在线安装的时候，它可以自动解决依赖问题。类似于iOS的CocoaPods，Java的Maven，前端的npm一样。
+
+#### yum源 配置文件
+
+yum是Redhat系列的Linux自带的软件安装工具（Debian系列是apt-get），yum源就是指存放所有软件包的服务器地址，它的默认配置文件为：`/etc/yum.repos.d/CentOS-Base.repo`
+
+![CentOS_yum_base-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_yum_base.png)
+
+配置文件中的每一段内容都相似，具体字段说明如下表：
+
+| 字段名称 | 描述 |
+| --- | --- |
+| [base] | 容器名称，一定要放在[]中 |
+| name | 容器说明，内容自己随意 |
+| mirrorlist | 镜像站点，与baseurl二选一，即软件包的服务器地址 |
+| baseurl | yum源服务器地址，默认是CentOS官方yum源，国内可能速度较慢，建议换成国内的[网易镜像源](http://mirrors.163.com/.help/centos.html)或者[阿里镜像源](https://opsx.alibaba.com/mirror) |
+| enabled | 设置此容器是否生效，省略不写或写成enabled=1都是生效，写成enabled=0则不生效 |
+| gpgcheck | RPM的数字证书是否生效，1表示生效，0表示不生效 |
+| gpgkey | 数字证书的公钥文件保存位置，不要修改。 |
+
+#### 光盘搭建本地yum源
+
+很多时候在有网络的情况下我们使用yum在线源来安装软件就可以了，但是偏偏他就有这么一种情况，没有网络！！那么这个时候我们又想起了我们的系统镜像光盘里其实已经有所有我们需要的软件包了，那么它不就相当于是一个yum源了吗？没错，确实是这样的，所以我们可以使用光盘来做本地yum源，步骤如下：
+
+* 挂载光盘：`mount /dev/sr0 /media`
+* 使网络yum源失效：在上面配置文件介绍的时候我们知道，只需要将配置文件里容器的enabled值设置为0就可以了，但是默认配置文件中有好几个容器，每个都设置一遍比较麻烦，所以既然yum源的默认配置文件为`/etc/yum.repos.d/CentOS-Base.repo`，那么如果我将这个文件删掉它就不起作用了吧？这样是可以，但是我们说对于系统默认配置文件我们要本着**_只备份不删除_**的原则，所以我们只需要将这个文件改个名备份一下即可`mv CentOS-Base.repo CentOS-Base.repo.bak`
+* 使光盘yum源生效：修改光盘的yum配置文件`/etc/yum.repos.d/CentOS-Media.repo`，如下图：
+![CentOS_yum_media](http://pbe07x0ww.bkt.clouddn.com/CentOS_yum_media.png)
+
+完成上述步骤后执行`yum list`即可验证本地yum源是否生效。
+
+#### 通过yum安装软件
+
+首先，我们可以通过`yum search 关键字`来查询yum源里是否有需要的软件包。
+
+yum安装命令为：`yum -y install 包名`，其中选项`-y`表示自动回答yes，例如：`yum -y install gcc`
+
+上面我们使用rpm命令手动艰难的安装了httpd（也就是Apache服务器软件）的主包和`httpd-tools`，还有`httpd-manual`文档包和`httpd-devel`开发包没有安装，我们使用yum安装`yum -y install httpd-manual httpd-devel`
+
+> Apache是个急性子，安装好就自动启动了。
+> RPM包安装的Apache手动启动的方式有两种：一种是安装好的可执行命令启动：`/usr/sbin/httpd -k start`或者`/usr/sbin/apachectl start`，另外一种是通过Linux服务启动：`service httpd restart`
+
+### 3.3 源码包安装
+
+源码包安装时一定要安装在指定位置，因为通过源码包安装的软件没有卸载命令，所以如果你想卸载的时候只要把指定位置下的文件全部删掉就可以了，安装位置一般是：`/usr/local/软件名/`
+
+使用源码包安装之前必须保证系统已安装`gcc`：
+
+![CentOS_rpm_gcc-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_gcc.png)
+
+下载源码包，一般Linux的软件包都有对应的官方网站下载地址，我们下面以Apache软件来讲解，Apache 2.4下载地址为：[http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz](http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz)，执行`wget http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz`即可将软件源码包下载到当前路径下。
+
+![CentOS_wget_1-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_wget_1.png)
+
+![CentOS_wget_2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_wget_2.png)
+
+> 1.由于Apache 2.4依赖Apache的运行环境下的两个包 [apr](http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz) 和 [apt-util](http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz)
+> 2.所以采用同样的wget方式将其下载下来
+> 3.另外，Apache编译时还依赖了`pcre-config`，它属于`pcre-devel`，所以我们要使用`yum -y install pcre-devel`命令安装好这个依赖包
+
+全部下载完成后将其一一解压缩到下载的目录下：
+
+![CentOS_tar_1-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_tar_1.png)
+
+解压完成之后，首先我们要安装的是`apr`，所以需要进入到解压后的`apr-1.6.5`目录下，然后依次执行：
+
+* `./configure --prefix=/usr/local/apr`: 软件配置与检查，主要是将软件安装的功能选项和系统环境信息写入Makefile，为后续的make做准备，**这里`--prefix=PATH`一定不能省略**；
+* `make`：编译，这个不用多说。清空编译缓存执行`make clean`；
+* `make install`：安装；
+
+安装完成之后，在`/usr/local/apr`下就生成了相应的文件。
+
+然后我们需要安装的是`apr-util`，所以需要进入到解压后的`apr-util-1.6.1`目录下，然后依次执行：
+
+* `./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr`: `apr-util`编译时要依赖`apr`，所以这里的**`--with-apr=PATH`是用来指定编译`apr-util`时依赖的`apr`使用哪一个**；
+* `make`：编译；
+* `make install`：安装；
+
+安装完成之后，在`/usr/local/apr-util`下就生成了相应的文件。
+
+最后，我们进入解压好的`httpd-2.4.37`目录下：
+
+![CentOS_tar_2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_tar_2.png)
+
+依次执行：
+
+* `./configure --prefix=/usr/local/apache2 --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util`: 编译时要依赖`apr`和`apr-util`；
+* `make`：编译；
+* `make install`：安装；
+
+安装完成之后可以看到如下效果：
+
+![CentOS_apache2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_apache2.png)
+
+执行`/usr/local/apache2/bin/apachectl start`即可开启Apache服务器，通过浏览器访问效果如下（关闭防火墙）：
+
+![CentOS_httpd_work-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_httpd_work.png)
+
