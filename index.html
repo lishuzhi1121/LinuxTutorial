@@ -1,0 +1,1527 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>README</title>
+<style>
+html,body{ font-family: "SF UI Display", ".PingFang SC","PingFang SC", "Neue Haas Grotesk Text Pro", "Arial Nova", "Segoe UI", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "Hiragino Sans GB", sans-serif;
+  font-size: 16px;
+  color:#222
+  -webkit-text-size-adjust:none;  min-width: 200px;
+  max-width: 760px;
+  margin: 0 auto; padding: 1rem;
+  line-height: 1.5rem;
+
+}
+h1,h2,h3,h4,h5,h6{font-family: "PT Sans","SF UI Display", ".PingFang SC","PingFang SC", "Neue Haas Grotesk Text Pro", "Arial Nova", "Segoe UI", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "Hiragino Sans GB", sans-serif;
+text-rendering:optimizelegibility;margin-bottom:1em;font-weight:bold; line-height: 1.8rem;
+
+}
+h1,h2{position:relative;padding-top:1rem;padding-bottom:0.2rem;margin-bottom:1rem;
+border-bottom: solid 1px #eee;  
+}
+h2{padding-top:0.8rem;padding-bottom:0.2rem;}
+h1{ font-size: 1.6rem;}
+h2{ font-size: 1.4rem;}
+h3{ font-size: 1.2rem;}
+h4{ font-size: 1.1rem;}
+h5{ font-size: 1.0rem;}
+h6{ font-size: 0.9rem;}
+
+table{border-collapse:collapse;border-spacing:0;
+  margin-top: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+tr{  background-color: #fff;
+  border-top: 1px solid #ccc;}
+th,td{padding: 5px 14px;
+  border: 1px solid #ddd;}
+
+blockquote{font-style:italic;font-size:1.1em;line-height:1.5em;padding-left:1em; border-left:4px solid #D5D5D5;    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1.5rem; }
+
+a{color:#1863a1}
+a:hover{color: #1b438d;}
+pre,code,p code,li code{font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace}
+
+pre{-webkit-border-radius:0.4em;-moz-border-radius:0.4em;-ms-border-radius:0.4em;-o-border-radius:0.4em;border-radius:0.4em;border:1px solid #e7dec3;line-height:1.45em;font-size:0.9rem;margin-bottom:2.1em;padding:.8em 1em;color:#586e75;overflow:auto; background-color:#fdf6e3;}
+
+:not(pre) > code{display:inline-block;text-indent:0em;white-space:no-wrap;background:#fff;font-size:0.9rem;line-height:1.5em;color:#555;border:1px solid #ddd;-webkit-border-radius:0.4em;-moz-border-radius:0.4em;-ms-border-radius:0.4em;-o-border-radius:0.4em;border-radius:0.4em;padding:0 .3em;margin:-1px 4px;}
+pre code{font-size:1em !important;background:none;border:none}
+
+img{max-width:100%;padding: 8px 0px;}
+
+
+hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* PrismJS 1.14.0
+https://prismjs.com/download.html#themes=prism-solarizedlight&languages=markup+css+clike+javascript */
+/*
+ Solarized Color Schemes originally by Ethan Schoonover
+ http://ethanschoonover.com/solarized
+
+ Ported for PrismJS by Hector Matos
+ Website: https://krakendev.io
+ Twitter Handle: https://twitter.com/allonsykraken)
+*/
+
+/*
+SOLARIZED HEX
+--------- -------
+base03    #002b36
+base02    #073642
+base01    #586e75
+base00    #657b83
+base0     #839496
+base1     #93a1a1
+base2     #eee8d5
+base3     #fdf6e3
+yellow    #b58900
+orange    #cb4b16
+red       #dc322f
+magenta   #d33682
+violet    #6c71c4
+blue      #268bd2
+cyan      #2aa198
+green     #859900
+*/
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #657b83; /* base00 */
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  background: #073642; /* base02 */
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  background: #073642; /* base02 */
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-color: #fdf6e3; /* base3 */
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1; /* base1 */
+}
+
+.token.punctuation {
+  color: #586e75; /* base01 */
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #268bd2; /* blue */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.url,
+.token.inserted {
+  color: #2aa198; /* cyan */
+}
+
+.token.entity {
+  color: #657b83; /* base00 */
+  background: #eee8d5; /* base2 */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #859900; /* green */
+}
+
+.token.function,
+.token.class-name {
+  color: #b58900; /* yellow */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #cb4b16; /* orange */
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+
+
+</style>
+
+<style> @media print{ code[class*="language-"],pre[class*="language-"]{overflow: visible; word-wrap: break-word !important;} }</style></head><body><div class="markdown-body">
+<h1 id="toc_0">全栈最后一公里 —— Linux从入门到实践</h1>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/full_stack.jpg" alt="full_stack" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<blockquote>
+<p>傻瓜都能写出计算机能理解的程序，而好的程序员能写出人能读懂的代码。</p>
+</blockquote>
+
+<ul>
+<li>
+<a href="#toc_0">全栈最后一公里 —— Linux从入门到实践</a>
+<ul>
+<li>
+<a href="#toc_1">一、前世今生</a>
+<ul>
+<li>
+<a href="#toc_2">1、系统来源</a>
+</li>
+<li>
+<a href="#toc_3">2、系统版本</a>
+<ul>
+<li>
+<a href="#toc_4">Linux内核版本：</a>
+</li>
+<li>
+<a href="#toc_5">Linux发行版本：</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_6">二、Linux系统安装</a>
+<ul>
+<li>
+<a href="#toc_7">1、虚拟机安装</a>
+</li>
+<li>
+<a href="#toc_8">2、系统分区</a>
+</li>
+<li>
+<a href="#toc_9">3、Linux系统安装</a>
+<ul>
+<li>
+<a href="#toc_10">3.1 创建虚拟机</a>
+</li>
+<li>
+<a href="#toc_11">3.2 安装Linux</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_12">三、Linux 序言</a>
+</li>
+<li>
+<a href="#toc_13">四、Linux 网络管理</a>
+<ul>
+<li>
+<a href="#toc_14">1、网络模型与作用</a>
+<ul>
+<li>
+<a href="#toc_15">1.1 OSI七层网络模型</a>
+</li>
+<li>
+<a href="#toc_16">1.2 TCP/IP四层网络模型</a>
+</li>
+<li>
+<a href="#toc_17">1.3 关于IP地址</a>
+</li>
+<li>
+<a href="#toc_18">1.4 关于子网掩码</a>
+</li>
+<li>
+<a href="#toc_19">1.5 关于端口</a>
+</li>
+<li>
+<a href="#toc_20">1.6 关于DNS</a>
+</li>
+<li>
+<a href="#toc_21">1.7 关于网关（路由器）</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_22">2、 Linux网卡与配置</a>
+<ul>
+<li>
+<a href="#toc_23">2.1 网卡信息文件</a>
+</li>
+<li>
+<a href="#toc_24">2.2 主机名文件</a>
+</li>
+<li>
+<a href="#toc_25">2.3 DNS配置文件</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_26">3、重启网络服务</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_27">五、Linux 用户管理</a>
+<ul>
+<li>
+<a href="#toc_28">1、用户与用户组</a>
+<ul>
+<li>
+<a href="#toc_29">1.1 用户组信息文件</a>
+</li>
+<li>
+<a href="#toc_30">1.2 用户组的密码信息文件</a>
+</li>
+<li>
+<a href="#toc_31">1.3 用户信息文件</a>
+</li>
+<li>
+<a href="#toc_32">1.4 用户密码信息文件</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_33">2、基本命令</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_34">六、Linux 权限管理</a>
+<ul>
+<li>
+<a href="#toc_35">1、文件权限的修改</a>
+</li>
+<li>
+<a href="#toc_36">2、文件权限的作用</a>
+</li>
+<li>
+<a href="#toc_37">3、文件所属的修改</a>
+</li>
+<li>
+<a href="#toc_38">4、文件的默认权限</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_39">七、Linux 软件安装管理</a>
+<ul>
+<li>
+<a href="#toc_40">1、挂载</a>
+</li>
+<li>
+<a href="#toc_41">2、压缩和解压缩</a>
+</li>
+<li>
+<a href="#toc_42">3、软件包安装</a>
+<ul>
+<li>
+<a href="#toc_43">3.1 RPM包手动安装</a>
+</li>
+<li>
+<a href="#toc_44">3.2 yum在线安装</a>
+<ul>
+<li>
+<a href="#toc_45">yum源 配置文件</a>
+</li>
+<li>
+<a href="#toc_46">光盘搭建本地yum源</a>
+</li>
+<li>
+<a href="#toc_47">通过yum安装软件</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_48">3.3 源码包安装</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="toc_1">一、前世今生</h2>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/linux_icon.png" alt="linux_icon" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<h3 id="toc_2">1、系统来源</h3>
+
+<p>在Linux之前有一个叫 <em>Andrew S. Tanenbaum</em> 的教授为了给他的学生上课买了一个UNIX操作系统源码，然后参考这个系统但是没有任何抄袭成分的做了一个叫作Minix的操作系统，后来他把这个Minix操作系统的源码全部开放给学校和学生做学习研究使用，再后来经过一番优化之后他把这个系统就直接放到网络上去开源了，当时就一下受到很多人的关注，开源免费的操作系统非常受欢迎，很多人就开始使用，但是用着用着就有人发现这个系统有些bug，于是就向这个教授提了很多修复补丁程序希望教授可以更新修复，但是呢这个教授不这么想，他说：“我写这个代码就只是为了教学，你们能看得懂我的目的就达到了，我不需要任何外来的代码也没有想过把它商业发行。”</p>
+
+<p>那么这个时候另一个家伙出现了，<em>Linus Torvalds</em>，当时是芬兰赫尔辛基大学大三的大学生，他以Minix为模板，自己开发了一些软件和并且集中了当时网上呼声较高的一些补丁程序重新写了一个操作系统——Linux操作系统。</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/Linus%20Torvalds.png" alt="Linus Torvalds" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>Linus选择了芬兰的吉祥物企鹅作为该系统的标识，并在1991年的时候就将Linux操作系统发布了，短短20多年的时间，Linux系统就已经在服务器领域占据了举足轻重的地位。</p>
+
+<h3 id="toc_3">2、系统版本</h3>
+
+<p>Linux经过20多年的发展已经拥有了非常众多的版本，但是我们需要知道的是这些版本中分为Linux内核版本和Linux发行版本，这两个版本不太一样。</p>
+
+<h4 id="toc_4">Linux内核版本：</h4>
+
+<p>Linux内核版本就是核心版本，它由 <a href="https://www.kernel.org/">Linux内核官网</a> 发行，目前最新的内核版本是4.19版本。</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/Linux_core.png" alt="Linux_core" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<blockquote>
+<p>值得一提的是：对于服务器领域而言，一般不会采用最新版本，线上我们要本着“猥琐发育，不要浪”的原则！</p>
+</blockquote>
+
+<h4 id="toc_5">Linux发行版本：</h4>
+
+<p>内核版本是由官网发布，任何人都可以去免费下载使用的，但是比如基于内核版本之上开发一些工具，开发一个桌面，放点好看的图标，或者做一些裁剪等，那么它就会变成各个厂商的发行版本。</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/Linux_versions.png" alt="Linux_versions" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>在上面众多版本中，比较流行的主要是Redhat和Ubuntu，其中Ubuntu的优势主要在于界面优化的非常漂亮，有的时候都认不出来这是一个Linux系统，但是这些花里胡哨的东西并不适合服务器使用，上面我们说过服务器一定要稳定优先，所以一般不会在服务器上去安装图像界面，所以下面本教程也会以Redhat系列来进行，只不过有一点需要说的是Redhat部分功能是收费的，所以我们会以Redhat的替身CentOS操作系统为例进行讲解。</p>
+
+<h2 id="toc_6">二、Linux系统安装</h2>
+
+<p>在开始学习Linux系统之前我们迫切需要知道如何把Linux系统给安装上，但是呢作为一个初学者，如果直接在自己的电脑上就装一个Linux操作系统，那我估计你可能痛苦的坚持不了3天就要重装系统了，所以就引入了下面的虚拟机相关知识。</p>
+
+<h3 id="toc_7">1、虚拟机安装</h3>
+
+<p>在Mac上（PS：下述所有内容如无特殊说明都是基于Mac进行）常用的虚拟机就两种 <a href="https://www.vmware.com/cn.html">VMware</a> 和 <a href="https://www.parallels.com/cn/">Parallels Desktop</a> ，相同点是这两个都收费，而且价格不菲，不同点是我这里有可以使用的“<del>正版VMware</del>”，下载链接:<a href="https://pan.baidu.com/s/1dtnZ1V_evPFbJCrER2l9mg">https://pan.baidu.com/s/1dtnZ1V_evPFbJCrER2l9mg</a>  密码:6o3p 关于如何在Mac上把VMware安装上就不作过多赘述了，与安装其他软件没有什么区别，一路Next然后完成之后使用天朝独特的Keygen去“<del>优化</del>（破解）”一下就可以使用了。</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_wel.png" alt="VMware_wel" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>VMware安装完成之后打开应该是上面这样的，这里我们主要介绍三个功能，首先是左边一半重点便捷的<strong>“从光盘或映像安装”</strong>，这个功能没什么好说，给一个iso镜像文件然后就一路向西的安装完成了，其次是<strong>“导入现有虚拟机”</strong>，如果你已经有安装好的虚拟机文件(ps:使用虚拟机安装系统的时候会生成一个文件保存安装的系统数据信息)那么可以直接通过这个功能加载出来，最后是<strong>“创建自定义虚拟机”</strong>，这个功能就相当于你去电脑市场买了一个只有boot系统的电脑，里面并没有操作系统，需要你手动安装。我们下面安装Linux系统的时候也使用该功能。</p>
+
+<h3 id="toc_8">2、系统分区</h3>
+
+<p>在进行Linux系统安装之前我们先要搞清楚一个问题，那就是系统分区。下面简单介绍一下系统分区的类型：</p>
+
+<ul>
+<li>主分区：由硬盘硬件决定了主分区最多只能有4个</li>
+<li>扩展分区：扩展分区最多只能有一个，并且主分区加扩展分区最多只能有4个，另外扩展分区不能写入数据，只能包含逻辑分区</li>
+<li>逻辑分区</li>
+</ul>
+
+<p>我们都知道在Windows中硬盘分区的时候需要指定盘符，例如：系统分区用字母C作为盘符，其他的用D、E、F以此类推，但是在Linux中我们把这个盘符称为<strong>“挂载点”</strong>，把一个硬盘分区让Linux系统读取到的过程称作<strong>“挂载”</strong>。关于Linux系统分区的要求如下：</p>
+
+<ul>
+<li>必须分区：
+<ol>
+<li>/ (根分区) </li>
+<li>swap分区 (交换分区，一般物理机内存4GB以下时建议为内存的2倍，物理机内存超过4GB时建议和物理机内存大小一致即可)</li>
+</ol></li>
+<li>推荐分区：
+<ol>
+<li>/boot (启动分区，200MB)</li>
+</ol></li>
+</ul>
+
+<p>那么是不是说一块硬盘分区之后就使用了呢？不是的！做好分区之后还需要做另外一件事情，格式化。</p>
+
+<p>格式化：又称逻辑格式化，它是指根据用户选定的文件系统（如FAT32、NTFS、EXT4等），在磁盘的特定区域写入特定的数据，从而在分区中划出一块用于存放文件分配表、目录表等用于文件管理的磁盘空间的过程；</p>
+
+<blockquote>
+<p>注意：这里有一个误区，很多人认为格式化是用来清空分区里的数据的，其实并不是这样，虽然格式化会清空分区里的数据，但是格式化的根本目的是为了写入文件系统。</p>
+</blockquote>
+
+<h3 id="toc_9">3、Linux系统安装</h3>
+
+<p>安装好虚拟机并且了解了系统分区知识后我们才可以进行科学的Linux系统安装。</p>
+
+<h4 id="toc_10">3.1 创建虚拟机</h4>
+
+<p>在前面我们已经安装好了VMware，启动它，选择<strong>“创建自定义虚拟机”</strong>，点击<strong>“继续”</strong>，之后看到如下画面：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_chos.png" alt="VMware_chos" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>然后选择<strong>“Linux”</strong>-&gt;<strong>“CentOS 64位”</strong>点击<strong>“继续”</strong>，画面如下：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_chhd.png" alt="VMware_chhd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>选择<strong>“新建虚拟磁盘”</strong>，点击<strong>“继续”</strong>，就可以完成虚拟机的创建了，出现如下画面，点击<strong>“完成”</strong>，选择好虚拟机文件存放路径，即可完成虚拟机的创建。</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_finish.png" alt="VMware_finish" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<h4 id="toc_11">3.2 安装Linux</h4>
+
+<p>和Windows或者macOS操作系统一样，安装都需要一个系统镜像来完成安装，我们可以从<a href="https://www.centos.org/">CentOS官网</a>下载各种版本的系统镜像，本教程使用的系统镜像是<a href="http://vault.centos.org/6.9/isos/x86_64/">CentOS 6.9 64位</a></p>
+
+<p>下载好系统镜像之后，打开刚安装好的虚拟机，点击<strong>“设置”</strong>按钮，打开设置面板：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_st.png" alt="VMware_st" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>选择<strong>“CD/DVD(IDE)”</strong>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_cd.png" alt="VMware_cd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>勾选“连接 CD/DVD 驱动器”，然后下拉选择“选择一个光盘或光盘映像...”，选择我们下载好的系统镜像：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_sel_iso.png" alt="VMware_sel_iso" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_iso.png" alt="VMware_iso" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>这就跟我们平时安装电脑在光驱里插入系统光盘一样，下面我们就可以启动虚拟机进行Linux系统安装了。</p>
+
+<p>启动虚拟机，虚拟机会自动读取光驱里的系统镜像，从而启动Linux系统的安装程序，如下图：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_start.png" alt="CentOS_install_start" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>默认选择第一项即可，直接回车，会出现这样一个镜像数据完整性检测界面，简单的说就是用来检测你下载的这个系统镜像是不是可以使用，这里我们一般都认为是可用的不再进行检测，所以直接选择<strong>“Skip”</strong>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_check.png" alt="CentOS_install_check" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>之后就很简单了，一路<strong>“Next”</strong>就行：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_installz_wel.png" alt="CentOS_installz_wel" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_lan.png" alt="CentOS_install_lan" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_kb.png" alt="CentOS_install_kb" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_bs.png" alt="CentOS_install_bs" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>下面这里需要注意一下，如果曾经虚拟机安装过可能会有这个提示，直接忽略掉就可以了，选择<strong>“是，忽略所有数据”</strong>，然后点击<strong>“下一步”</strong>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_dc.png" alt="CentOS_install_dc" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>下面这里的主机名默认就好，因为对于Linux来说同一个局域网里并不是靠主机名来进行通信的，所以同一个局域网里可以有多个主机名相同的Linux计算机，这一点和Windows不一样。继续<strong>“下一步”</strong>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_host.png" alt="CentOS_install_host" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_time.png" alt="CentOS_install_time" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_pwd.png" alt="CentOS_install_pwd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>在上面设置好密码之后就到下面选择安装类型了，其实就是选择分区方式，这里前面我们讲了关于Linux系统分区的相关知识，所以我们选择<strong>“创建自定义布局”</strong>，然后点击<strong>“下一步”</strong>：<br/>
+<img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout.png" alt="CentOS_install_layout" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>下一步之后我们看到了如下的图形化分区界面，选择<strong>“空闲”</strong>的硬盘驱动器，点击<strong>“创建”</strong>来创建我们想要的分区：<br/>
+<img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_start.png" alt="CentOS_install_layout_start" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>选择<strong>“标准分区”</strong>，点击<strong>“创建”</strong>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_c.png" alt="CentOS_install_layout_c" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>选择好<strong>“挂载点”</strong>和<strong>“大小”</strong>，点击<strong>“确定”</strong>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_hm.png" alt="CentOS_install_layout_hm"/></p>
+
+<p>重复上面的创建分区操作，根据之前说的系统分区要求做好分区后点击<strong>“下一步”</strong>，完整的分区创建完成后如下图：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_full_lay.png" alt="CentOS_install_full_lay" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>选择<strong>“格式化”</strong>，点击<strong>“下一步”</strong>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_fm.png" alt="CentOS_install_fm" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>选择<strong>“将修改写入磁盘”</strong>，点击<strong>“下一步”</strong>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_wr.png" alt="CentOS_install_wr" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_in.png" alt="CentOS_install_in" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>下面这里选择安装方式需要注意一下，这几种安装方式的说明如下：</p>
+
+<ul>
+<li>Desktop：基本的桌面系统，包括常用的桌面软件，如文档查看工具、浏览器等</li>
+<li>Minimal Desktop：基本的桌面系统，包含的软件较少</li>
+<li>Minimal：基本的系统，不含有任何可选的软件包</li>
+<li>Basic Server：安装的基本系统的平台支持，不包含桌面</li>
+<li>Database Server：基本系统平台，加上MySQL和PostgreSQL数据库，无桌面</li>
+<li>Web Server：基本系统平台，加上PHP，Web server，还有MySQL和PostgreSQL数据库的客户端，无桌面</li>
+<li>Virtual Host：基本系统加虚拟平台</li>
+<li>Software Development Workstation：包含软件包较多，基本系统，虚拟化平台，桌面环境，开发工具</li>
+</ul>
+
+<blockquote>
+<p>这里需要说明的是服务器上安装的时候一般都是选择Minimal只进行最小安装，系统安装完成后需要什么软件装什么软件；<br/>
+但是由于我们初学者对Linux软件安装并不熟悉，所以我们为了后面的讲解方便，我们这里就选择Basic Server，这样安装完成就包含了一些基本的软件包，使用起来更方便；</p>
+</blockquote>
+
+<p>选择<strong>“Basic Server”</strong>，点击<strong>“下一步”</strong>：<br/>
+<img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_basic.png" alt="CentOS_install_basic" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>下面就启动了系统安装程序，静静的等待就好...</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing0.png" alt="CentOS_install_ing0" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing1.png" alt="CentOS_install_ing1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing2.png" alt="CentOS_install_ing2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>经过了上面漫长的等待，出现下面的画面，我们就完成了Linux系统的安装，点击<strong>“重新引导”</strong>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_cmp.png" alt="CentOS_install_cmp" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>重新引导完成后，CentOS系统启动，启动成功后界面如下，只有一个命令行字符界面，其他什么都没有:</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_start.png" alt="CentOS_start" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>我们输入用户名：root和密码即可登录，登录成功后如下图：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_login.png" alt="CentOS_login" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>安装完成之后在<code>/root</code>目录下有三个安装日志文件，说明如下：</p>
+
+<blockquote>
+<p><code>/root/install.log</code>：存储了安装在系统中的软件包及其版本信息<br/>
+<code>/root/install.log.syslog</code>：存储了安装过程中留下的事件记录<br/>
+<code>/root/anaconda-ks.cfg</code>：以Kickstart配置文件的格式记录安装过程中设置的选项信息（用作网络批量安装）</p>
+</blockquote>
+
+<p>OK，到此为止，我们学习Linux的旅程已经踏出了第一步，Linux系统安装完成。</p>
+
+<h2 id="toc_12">三、Linux 序言</h2>
+
+<p>在经历了一顿猛如虎的操作之后，我们把操作系统安装好了并且启动了，那么接下来我们即将正式进入Linux基础学习了。</p>
+
+<p>对于Linux学习，其实就一句话 —— <strong><u>“一切皆文件！”</u></strong>。</p>
+
+<p>OK，我的教程到此<del>结束</del>（开始）了。。。</p>
+
+<p>好吧，言归正传，在学习Linux之前我们了解了她的前世今生，可是到目前为止我们还不知道她的庐山真面目呢，下面我们就来介绍一下Linux的文件结构：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_files.png" alt="CentOS_files" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/linux-file-system-hierarchy.png" alt="linux-file-system-hierarchy" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">目录</th>
+<th style="text-align: left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: left">/</td>
+<td style="text-align: left">主层次 的根，也是整个文件系统层次结构的根目录</td>
+</tr>
+<tr>
+<td style="text-align: left">/bin</td>
+<td style="text-align: left">存放在单用户模式可用的必要命令二进制文件，所有用户都可用，如 cat、ls、cp等等</td>
+</tr>
+<tr>
+<td style="text-align: left">/boot</td>
+<td style="text-align: left">存放引导加载程序文件，例如kernels、initrd等</td>
+</tr>
+<tr>
+<td style="text-align: left">/dev</td>
+<td style="text-align: left">存放必要的硬件设备文件，例如/dev/sda1表示第一块硬盘第一个分区</td>
+</tr>
+<tr>
+<td style="text-align: left">/etc</td>
+<td style="text-align: left">存放系统管理和应用管理需要的所有配置文件</td>
+</tr>
+<tr>
+<td style="text-align: left">/home</td>
+<td style="text-align: left">用户的主目录，包括保存的文件，个人配置，等等</td>
+</tr>
+<tr>
+<td style="text-align: left">/media</td>
+<td style="text-align: left">可移动的多媒体(如CD-ROMs)的挂载点，例如：光盘</td>
+</tr>
+<tr>
+<td style="text-align: left">/mnt</td>
+<td style="text-align: left">临时挂载的文件系统，例如：优盘，移动硬盘等</td>
+</tr>
+<tr>
+<td style="text-align: left">/opt</td>
+<td style="text-align: left">存放可选的应用程序软件包，例如：数据库等软件安装包</td>
+</tr>
+<tr>
+<td style="text-align: left">/root</td>
+<td style="text-align: left">root用户的主目录</td>
+</tr>
+<tr>
+<td style="text-align: left">/sbin</td>
+<td style="text-align: left">存在超级管理员root用户可用的必要命令二进制文件，仅限root权限执行，例如：reboot、poweroff等等</td>
+</tr>
+<tr>
+<td style="text-align: left">/tmp</td>
+<td style="text-align: left">存放临时文件,通常在系统重启后删除</td>
+</tr>
+<tr>
+<td style="text-align: left">/var</td>
+<td style="text-align: left">各式各样的文件，一些随着系统常规操作而持续改变的文件就放在这里，比如日志文件，脱机文件，还有临时的电子邮件文件</td>
+</tr>
+<tr>
+<td style="text-align: left">/usr</td>
+<td style="text-align: left">这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于Windows下的Program Files目录</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_13">四、Linux 网络管理</h2>
+
+<p>在这个网络高速发展的时代，拿到电脑的第一件事儿我们要干嘛呢？？对，没错，插上网线（或连接无线网）进行上网，那么问题来了，插上网线就能上网了吗？NoNoNo，这中间还隔着好几个太平洋呢，不过好在我们有一个用来跨越这些太平洋很重要的硬件，叫做<strong>“网卡”</strong>。下面我们就来讲一下如何让Linux上网。</p>
+
+<h3 id="toc_14">1、网络模型与作用</h3>
+
+<p>要想上网首先我们就要了解网络模型，目前公认的网络模型有两种，一种是经典OSI七层网络模型，另外一种是TCP/IP四层网络模型。</p>
+
+<h4 id="toc_15">1.1 OSI七层网络模型</h4>
+
+<p>下图详细描述了OSI七层网络模型架构：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/ISO:OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png" alt="ISO:OSI七层网络模型" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<h4 id="toc_16">1.2 TCP/IP四层网络模型</h4>
+
+<p>我们说上面的七层网络模型很经典，但是在实际应用中很多时候网络架构并不是这样的，而是采用TCP/IP四层网络模型，那么它们之间到底有怎样的联系呢？我们来看下图：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_A479D37BC665-1.jpeg" alt="IMG_A479D37BC665-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<h4 id="toc_17">1.3 关于IP地址</h4>
+
+<p>从上面的网络模型中我们能够知道，IP其实是工作在网络层的互联网协议，它的作用这里不作过多阐述，主要想给大家说的是IP的分类，IP地址分为A~E五大类，但是其中D类IP、E类IP并不开放民用，所以下面是A、B、C三类IP的划分情况：</p>
+
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>最大网络数</th>
+<th>IP地址范围</th>
+<th>最大主机数</th>
+<th>私有IP地址范围</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>A</td>
+<td>126 (2<sup>7</sup> - 2)</td>
+<td>1.0.0.0~126.255.255.255</td>
+<td>2<sup>24</sup> - 2</td>
+<td>10.0.0.0~255.255.255.255</td>
+</tr>
+<tr>
+<td>B</td>
+<td>16384 (2<sup>14)</sup></td>
+<td>128.0.0.0~191.255.255.255</td>
+<td>2<sup>16</sup> - 2</td>
+<td>172.16.0.0~172.31.255.255</td>
+</tr>
+<tr>
+<td>C</td>
+<td>2097152 (2<sup>21)</sup></td>
+<td>192.0.0.0~223.255.255.255</td>
+<td>2<sup>8</sup> - 2</td>
+<td>192.168.0.0~192.168.255.255</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_18">1.4 关于子网掩码</h4>
+
+<p>子网掩码是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机的位掩码。好吧，说人话就是子网掩码是用来确定两个IP是否属于同一个网段的。子网掩码不能单独存在，它必须结合IP地址一起使用。既然这样我们就结合上面三类IP地址来看一下子网掩码，一般情况下，不同类别的IP地址与子网掩码具有如下对应关系：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_D5346D0871D2-1.jpeg" alt="IMG_D5346D0871D2-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<blockquote>
+<p>A类IP地址与子网掩码的对应关系</p>
+</blockquote>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_14FE850B0E9A-1.jpeg" alt="IMG_14FE850B0E9A-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<blockquote>
+<p>B类IP地址与子网掩码的对应关系</p>
+</blockquote>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_9F70E8FDFEF3-1.jpeg" alt="IMG_9F70E8FDFEF3-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<blockquote>
+<p>C类IP地址与子网掩码的对应关系</p>
+</blockquote>
+
+<h4 id="toc_19">1.5 关于端口</h4>
+
+<p>端口是计算机对外服务的大门，每开启一个服务都必然有一个对应的端口号来让外部访问，常见端口号如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>端口号</th>
+<th>对应服务</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>20、21</td>
+<td>FTP 文件传输服务</td>
+</tr>
+<tr>
+<td>22</td>
+<td>SSH 安全shell协议</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Telnet 远程登录协议（现在默认关闭）</td>
+</tr>
+<tr>
+<td>53</td>
+<td>DNS 域名解析服务</td>
+</tr>
+<tr>
+<td>80</td>
+<td>HTTP 超文本传输协议</td>
+</tr>
+<tr>
+<td>25、110</td>
+<td>SMTP 邮件传输协议、POP3 邮局协议3代</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_20">1.6 关于DNS</h4>
+
+<p>DNS，域名解析服务，主要负责把域名解析成IP地址，细节不作过多描述，这里需要说明的是DNS的查询过程，详见下图：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_1867.PNG" alt="IMG_1867" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<h4 id="toc_21">1.7 关于网关（路由器）</h4>
+
+<p>网关是访问互联网的必须配置项之一，主要作用：</p>
+
+<ul>
+<li>网关在所有内网计算机访问的不是本网段的数据报时用于数据转发；</li>
+<li>网关负责进行内网IP与公网IP之间的相互转换；</li>
+</ul>
+
+<p>一般情况下，网关是路由器，也可以是服务器做路由功能。</p>
+
+<blockquote>
+<p>Tips：如果仅仅是内网通信其实是可以不配置DNS和网关的，但是如果需要访问互联网就必须配置网关。</p>
+</blockquote>
+
+<h3 id="toc_22">2、 Linux网卡与配置</h3>
+
+<p>Linux配置IP地址的方法有四种：</p>
+
+<ul>
+<li>ifconfig命令临时配置IP地址</li>
+<li>setup工具永久配置IP地址</li>
+<li><strong><u>修改网络配置文件</u></strong></li>
+<li>图形界面配置IP地址</li>
+</ul>
+
+<p>我们这里只讲通过网络配置文件的配置方式，原因很简单，因为Linux一切皆文件！</p>
+
+<h4 id="toc_23">2.1 网卡信息文件</h4>
+
+<p>网卡信息文件在Linux中的路径为：<code>/etc/sysconfig/network-scripts/ifcfg-eth0</code>，关于该配置文件的基本说明如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>字段名=对应值</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong><u>DEVICE=eth0</u></strong></td>
+<td>网卡设备名</td>
+</tr>
+<tr>
+<td><strong><u>HWADDR=00:0C:29:71:27:EE</u></strong></td>
+<td>网卡设备MAC地址</td>
+</tr>
+<tr>
+<td><strong><u>TYPE=Ethernet</u></strong></td>
+<td>网卡类型为以太网</td>
+</tr>
+<tr>
+<td><strong><u>UUID=6c3e1dff-3e00-4933-81aa-317095967170</u></strong></td>
+<td>唯一识别码</td>
+</tr>
+<tr>
+<td><strong><u>ONBOOT=yes</u></strong></td>
+<td>是否随网络服务启动，eth0生效</td>
+</tr>
+<tr>
+<td><strong>_NM_CONTROLLED=no_</strong></td>
+<td>是否可以由Network Manager图形管理工具托管</td>
+</tr>
+<tr>
+<td><strong><u>BOOTPROTO=dhcp</u></strong></td>
+<td>是否自动获取IP（none、static、dhcp），如果该项配置为dhcp，则该文件就只需要配置该表中带有下划线加粗的字段，但前提是要确保网络中有dhcp服务器</td>
+</tr>
+<tr>
+<td><strong><u>USERCTL=no</u></strong></td>
+<td>不允许非root用户控制此网卡</td>
+</tr>
+<tr>
+<td>IPADDR=192.168.1.110</td>
+<td>IP地址</td>
+</tr>
+<tr>
+<td>NETMASK=255.255.255.0</td>
+<td>子网掩码</td>
+</tr>
+<tr>
+<td>GATEWAY=192.168.1.1</td>
+<td>网关</td>
+</tr>
+<tr>
+<td>DNS1=192.168.0.1</td>
+<td>DNS（可以配置多个，DNS2、DNS3...）</td>
+</tr>
+<tr>
+<td>IPV6INIT=no</td>
+<td>不启用IPv6</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_24">2.2 主机名文件</h4>
+
+<p>主机名文件路径为：<code>/etc/sysconfig/network</code>，关于该配置文件的基本说明如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>字段名=对应值</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>NETWORKING=yes</td>
+<td>网络服务是否工作</td>
+</tr>
+<tr>
+<td>HOSTNAME=localhost.localdomain</td>
+<td>主机名</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>该配置必须重启后才能生效<br/>
+可以通过hostname命令临时修改</p>
+</blockquote>
+
+<h4 id="toc_25">2.3 DNS配置文件</h4>
+
+<p>DNS配置文件路径为：<code>/etc/resolve.conf</code>，该配置文件说明如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>字段名 对应值</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>nameserver 192.168.0.1</td>
+<td>域名服务器</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>域名服务器可以有多个，换行写或者后面使用空格分割<br/>
+当网卡配置文件中的<strong><code>BOOTPROTO=dhcp</code></strong>时，该文件可以为空，不用配置</p>
+</blockquote>
+
+<h3 id="toc_26">3、重启网络服务</h3>
+
+<p>完成上面的配置后，我们的网卡配置就完成了，下面我们需要重启一下网络服务来让网卡工作，执行命令：<code>service network restart</code>，如下图：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_network_restart.png" alt="CentOS_network_restart" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>网络服务重启完成之后我们就可以执行命令：<code>ifconfig</code>来查看Linux系统的IP地址，也可以访问互联网了，如下图：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_ifconfig.png" alt="CentOS_ifconfig" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>OK，到这里为止，Linux网络管理我们就全部讲完了！！</p>
+
+<h2 id="toc_27">五、Linux 用户管理</h2>
+
+<p>在完成了网络配置这一小小的难关之后，我们讲是不是就可以开始使用我们的Linux系统了呢？其实理论上是可以了，但生活嘛，总是理想很丰满，现实很骨干啊！不知道大家有没有留意到一个细节，就是我们在安装Linux系统的时候从来没有要求过我们输入用户名，只是让我们输入了一个密码而已，咦，这好像跟我们安装界面话的操作系统，比如：Windows或者macOS 似乎都不太一样哎，这是为什么呢？OK，下面我们就来学习一下Linux的用户管理。</p>
+
+<h3 id="toc_28">1、用户与用户组</h3>
+
+<p>现在解释一下为什么之前安装Linux的时候没有让我们输入用户名，这是因为Linux采用无界面化安装的时候她并不会主动为我们分配用户，她会为自己创建一个统一的<code>root</code>用户，她认为剩下的事情都应该由<code>root</code>用户来操作，同时也给这个<code>root</code>用户赋予了极大的权限，后面我们讲到<strong>Linux 权限管理</strong>的时候大家就会体会到这个<code>root</code>用户是有多无敌，多寂寞了。也正是因为这一点我们才需要管理好我们Linux的用户。</p>
+
+<p>简单的说，用户就是使用该操作系统的人，而用户组是指具有相同权限的一组用户。我们一开始就说<strong>“Linux一切皆文件！”</strong>，那么用户和用户组对应的文件又在哪里呢？在开始讲这些文件之前，我需要大家先了解一个Linux文件编辑器——<strong><em>VIM</em></strong>，这里不会赘述怎么使用这个编辑器，请大家自行参考：<a href="https://coolshell.cn/articles/5426.html">简明 VIM 练级攻略</a></p>
+
+<h4 id="toc_29">1.1 用户组信息文件</h4>
+
+<p>当前系统中所有用户组信息都保存在<code>/etc/group</code>这个文件中，执行<code>vim /etc/group</code>可以看到如下内容：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_group.png" alt="CentOS_etc_group" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>每一行的内容以冒号分隔，释义如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>group</th>
+<th>x</th>
+<th>123</th>
+<th>abc,def,xyz</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>组名称</td>
+<td>组密码占位符</td>
+<td>组编号</td>
+<td>组中用户列表</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>组密码占位符：一定是x<br/>
+组编号：root用户组的编号一定是0，1~499是系统预留组编号，一般是预留给安装的软件或服务的。<br/>
+组中用户列表：为空并不代表该组中就一定没有用户，因为如果该组中有且仅有一个用户，并且用户名和组名一致，这时候是可以省略的</p>
+</blockquote>
+
+<h4 id="toc_30">1.2 用户组的密码信息文件</h4>
+
+<p>当前系统中所有用户组的密码信息都保存在<code>/etc/gshadow</code>这个文件中，执行<code>vim /etc/gshadow</code>可以看到如下内容：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_gshadow.png" alt="CentOS_etc_gshadow" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>与用户组信息一样，每一行的内容以冒号分隔，释义如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>group</th>
+<th>空/*</th>
+<th>空</th>
+<th>abc,def,xyz</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>组名称</td>
+<td>组密码</td>
+<td>组管理者</td>
+<td>组中用户列表</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>组密码：为空或为*号的时候都表示当前组没有密码<br/>
+组管理者：一般都为空，表示组内任何用户都可以管理该组</p>
+</blockquote>
+
+<h4 id="toc_31">1.3 用户信息文件</h4>
+
+<p>当前系统中所有用户信息都保存在<code>/etc/passwd</code>这个文件中，执行<code>vim /etc/passwd</code>可以看到如下内容：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_passwd.png" alt="CentOS_etc_passwd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>同样，每一行的内容以冒号分隔，释义如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>user</th>
+<th>x</th>
+<th>123</th>
+<th>456</th>
+<th>xxx</th>
+<th>/home/user</th>
+<th>/bin/bash</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>用户名</td>
+<td>密码占位符</td>
+<td>用户编号</td>
+<td>用户组编号</td>
+<td>用户注释信息</td>
+<td>用户家目录</td>
+<td>shell类型</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>用户家目录：创建用户时系统会自动在/home目录下创建一个与用户名同名的目录作为用户的家目录，用户登录系统时自动到该目录下<br/>
+shell类型：用来指定用户登录时执行命令的方式，一般是bash</p>
+</blockquote>
+
+<h4 id="toc_32">1.4 用户密码信息文件</h4>
+
+<p>当前系统中所有用户信息都保存在<code>/etc/shadow</code>这个文件中，执行<code>vim /etc/shadow</code>可以看到如下内容：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_shadow.png" alt="CentOS_etc_shadow" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>这个文件就没什么好说的了，其中第二个字段就表示用户密码，采用的是hash加盐的加密方式。</p>
+
+<p>OK，和用户和用户组相关的文件都介绍完了，这几个文件我们只要了解就行，一般不会去修改它，因为我们操作用户和用户组都有其他方式。</p>
+
+<h3 id="toc_33">2、基本命令</h3>
+
+<p>与操作用户组相关的基本命令如下：</p>
+
+<ul>
+<li><code>groups [username]</code>: 查看用户所属组，不写参数默认查看当前登录用户所属组</li>
+<li><code>groupadd groupname</code>: 添加用户组</li>
+<li><code>groupdel groupname</code>: 删除用户组</li>
+<li><code>groupmod -n [new_groupname] [old_groupname]</code>: 修改用户组名称</li>
+<li><code>groupmod -g groupid groupname</code>: 修改用户组id</li>
+</ul>
+
+<p>与操作用户相关的基本命令如下：</p>
+
+<ul>
+<li><code>useradd username</code>: 添加用户，默认添加用户时会创建一个同名用户组，添加的用户属于该用户组，同时在/home目录下会创建一个同名目录为该用户的家目录</li>
+<li><code>useradd -g groupname username</code>: 添加用户到指定用户组</li>
+<li><code>useradd -d /home/xxx username</code>: 添加用户时指定家目录</li>
+<li><code>userdel username</code>: 删除用户</li>
+<li><code>userdel -r username</code>: 删除用户同时删除用户的家目录</li>
+<li><code>usermod -l new_username old_username</code>: 修改用户名</li>
+<li><code>usermod -d /home/xxx username</code>: 修改用户家目录</li>
+<li><code>usermod -g groupname username</code>: 修改用户所属组</li>
+</ul>
+
+<blockquote>
+<p><code>passwd username</code>: 设置/修改用户密码<br/>
+注意：创建用户之后必须设置密码才可以登录系统！！</p>
+</blockquote>
+
+<h2 id="toc_34">六、Linux 权限管理</h2>
+
+<p>这里我们所说的权限管理实际上就是指Linux的文件权限管理，因为Linux一切皆文件！下面我们就来看一下Linux文件权限是怎么管理的。执行<code>ls -l /etc</code>可以看到如下内容：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_ls_etc.png" alt="CentOS_ls_etc" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>图中红色框部分就表示对应文件的权限，详细定义如下：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/file_rights.png" alt="file_rights" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<blockquote>
+<p>关于文件类型：除了上面图中展示的三种类型的文件之外还有其他类型的文件，但是，友情提示，如果你不是特别熟悉Linux的文件系统，那么当你看到除以上三种类型文件的时候请你绕着走！<br/>
+关于特殊权限：我就只说一点，如无特殊需求，请无视它，谢谢！</p>
+</blockquote>
+
+<h3 id="toc_35">1、文件权限的修改</h3>
+
+<p>修改文件权限的命令格式为：<code>chmod [选项] 模式 文件名</code></p>
+
+<ul>
+<li>选项：选项有很多，但常用的就一个，<code>-R</code>表示递归修改</li>
+<li>模式：分为两种，一种是字母模式<code>[ugoa][+-=][rwx]</code>，意思为“为哪一组权限添加、删除或赋予什么样的权限，其中a表示所有组（包括所有者、所属组和其他人）”，例如：<code>chmod u+x test.sh</code>表示为<code>test.sh</code>这个文件的所有者添加可执行权限；另外一种是数字模式<code>[mode=421]</code>，采用rwx对应的数字来表示权限，每一个权限之间是与的关系，所以采用加法运算，每一组权限只用一个数字表示，例如：<code>chmod 744 test.sh</code>表示将<code>test.sh</code>这个文件的权限修改为其所有者具有读写执行权限，而其所属组和其他人只有读权限。</li>
+</ul>
+
+<blockquote>
+<p>关于模式：可能一眼看上去字母模式更清晰，但说了你可能不信，这种模式使用度几乎为零，原因有二，其一字母模式你需要知道原文件是什么权限，其二字母并不如数字简单好记。</p>
+</blockquote>
+
+<h3 id="toc_36">2、文件权限的作用</h3>
+
+<p>权限是Linux文件系统的核心，本质目的还是为了安全，其实前面介绍完文件权限的时候大家对权限的作用就基本上心里有数了，这里我需要敲黑板的只有一个问题：<strong>“对文件有读写权限就能删除文件吗？？”</strong></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rm_test.png" alt="CentOS_rm_test" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>从上图我们就可以看到，不是这样的，就算你对文件有读写执行的一切权利，也不代表你就能删除文件，主要原因跟Linux的文件系统和存储结构有关，简单的解释为你对这个文件的权限只是表示了你对这个文件内的数据所拥有的权限，而对于一切皆文件的Linux来说，这个文件本身实际上是存储在<code>/home/sands/test</code>文件夹下的，所以它其实是这个文件夹文件内的数据，要操作它那就得拥有这个文件夹的权限。</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_ll_test.png" alt="CentOS_ll_test" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<blockquote>
+<p>可以看到我们当前用户对<code>test</code>文件夹并不具备写权限，也就解释了为什么我们无法将这个文件夹里面的<code>test.sh</code>文件删掉了。</p>
+</blockquote>
+
+<p><strong><u>注意：我们这里所说的权限<code>root</code>用户不适用！！！</u></strong></p>
+
+<p>另外，这里补充一点关于权限对目录的作用：</p>
+
+<ul>
+<li>r: 可以查询目录下的文件（ls）</li>
+<li>w: 具有修改目录结构的权限，例如：新建、删除、复制、剪切（touch, rm, cp, mv）</li>
+<li>x: 可以进入目录（cd）</li>
+</ul>
+
+<blockquote>
+<p><strong>总结：</strong>对于文件来说，最高权限是执行（x），但对于目录来说，最高权限是写（w）。所以对于目录有效权限只有0（没有任何权限）、5（有读r和执行x权限，可以查看内容）、7（有任何权限），<strong>禁止</strong>对文件夹赋予像1、4、6等这些没有意义的权限。</p>
+</blockquote>
+
+<h3 id="toc_37">3、文件所属的修改</h3>
+
+<p>修改文件的所属者和所属组的命令格式为：<code>chown [选项] ower:[groupname] filename</code>，其中<code>[选项]</code>有很多，但常用的只有一个<code>-R</code>表示递归修改，<code>groupname</code>是可选的，例如：</p>
+
+<ul>
+<li><code>chown sands test.sh</code>表示只将<code>test.sh</code>这个文件的所属者改为<code>sands</code>用户</li>
+<li><code>chown sands:usergroup test.sh</code>表示将<code>test.sh</code>这个文件的所属者改为<code>sands</code>用户，所属组改为<code>usergroup</code>用户组</li>
+</ul>
+
+<h3 id="toc_38">4、文件的默认权限</h3>
+
+<p>说了这么多文件权限的东西，似乎我们还忽略了一点，就是如果我们直接创建一个文件，那么它的权限是什么呢？为什么是这样呢？</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_ll_664.png" alt="CentOS_ll_664" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>从上图可以看到，在非root用户下直接创建一个文件默认权限为664，下面我们就来解释一下这是为什么：</p>
+
+<p>在开始解释之前，我需要大家明白一个原则性问题，之前我们也提到过，对于Linux来说文件的最高权限是x执行，但是Linux认为这个最高权限太危险了，所以文件默认是不能新建为可执行文件的，必须手动赋予执行权限，这样一来文件默认的最大权限就只能是666了。那是不是说新建的文件默认权限就是666了呢？显然不是，这还得受一个叫作<code>umask</code>值的家伙的管制：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_umask.png" alt="CentOS_umask" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<blockquote>
+<p>第一位0：表示文件特殊权限<br/>
+后面三位002：表示文件默认权限</p>
+</blockquote>
+
+<p>所以默认文件权限的具体计算方式如下图：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_file_default.png" alt="CentOS_file_default" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>现在我们知道了Linux文件的默认权限是这么来的，那其实文件夹默认权限也是同样的方式计算来的，但不同的是我们前面说过文件夹的最高权限是w写，所以Linux就认为文件夹的写并不具备什么危险，所以文件夹默认的最大权限就是777，所以计算默认权限的时候也应该用777来进行计算。</p>
+
+<p>关于umask值的修改：</p>
+
+<ul>
+<li>临时修改：直接执行<code>umask 0022</code></li>
+<li>永久修改：修改<code>/etc/profile</code>这个环境变量文件</li>
+</ul>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_profile_umask.png" alt="CentOS_etc_profile_umask" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<h2 id="toc_39">七、Linux 软件安装管理</h2>
+
+<p>软件安装对于任何操作系统来说都是非常重要的一部分，原因很简单，我们安装操作系统就是要做事儿的，而一个空的操作系统能帮我们做的事情微乎其微，所以我们才需要通过安装各种软件来为我们服务。</p>
+
+<h3 id="toc_40">1、挂载</h3>
+
+<p>在讲软件安装之前先给大家讲一个概念叫做<strong>挂载</strong>，我们都知道在macOS和Windows中，当我们把光盘放入光驱或者是优盘插入USB接口的时候在我们的电脑里就能查看到对应的里面的内容了，但是很不幸的告诉你，在Linux中并不是这样的。我们在讲Linux系统分区的时候就说过，硬盘每个分区的盘符称为“挂载点”，读取分区的过程称为“挂载”，其实对于其他设备也一样，我们也要通过挂载的方式来读取设备内容。</p>
+
+<p>一般我们选择将光盘挂载到系统的<code>/media</code>文件夹下，而将优盘等挂载到系统的<code>/mnt/xxx</code>文件夹下，xxx的意思是指在<code>/mnt</code>文件夹下再创建一个文件夹来挂载对应设备，挂载命令如下：</p>
+
+<ul>
+<li>挂载光盘：<code>mount /dev/sr0 /media</code>表示将光盘挂载到<code>/media</code>目录下，如下图：</li>
+</ul>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_mount_sr0.png" alt="CentOS_mount_sr0" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<ul>
+<li>挂载优盘：先执行<code>fdisk -l</code>来查看优盘设备文件名，再执行<code>mount /dev/sdb1 /mnt/usb</code>来将文件名为sdb1的优盘挂载到mnt文件夹下的usb文件夹里</li>
+</ul>
+
+<blockquote>
+<p>卸载已经挂载好的设备也很简单：<code>umount /dev/sr0</code>即可卸载已经挂载的光盘。</p>
+</blockquote>
+
+<h3 id="toc_41">2、压缩和解压缩</h3>
+
+<p>快要吐血了啊，要讲一个东西涉及的实在是太多了，为了安装软件我们应当知道软件包是如何进行压缩和解压缩的？</p>
+
+<ul>
+<li><code>.zip</code>格式压缩命令为：<code>zip [选项] 压缩包名 源文件名</code>，例如：<code>zip test.zip test.sh</code>表示将<code>test.sh</code>这个文件压缩为<code>test.zip</code>，常用选项为<code>-r</code>压缩文件夹，例如：<code>zip -r test.zip test</code>表示将<code>test</code>这个文件夹压缩为<code>test.zip</code></li>
+<li><code>.zip</code>格式解压缩命令为：<code>unzip 压缩包名</code>解压缩到当前文件夹</li>
+<li><code>.gz</code>格式压缩命令为：<code>gzip 源文件名</code>，例如：<code>zip cangls</code>表示将<code>cangls</code>这个文件压缩为<code>cangls.gz</code>。<strong><u>需要注意的是该命令压缩后源文件会消失，并且不适合压缩文件夹</u></strong>。</li>
+<li><code>.gz</code>格式解压缩命令为：<code>gzip -d 压缩包名</code></li>
+</ul>
+
+<p>以上这两种格式都可以压缩文件，但是！！！在Linux中并不常用，原因是因为他们的姿势实在是不够风骚，用着很不舒服。</p>
+
+<p>为了解决上面的问题，Linux为我们准备了一个打包命令<code>tar</code>，命令格式为：<code>tar -cvf 打包后的包名 源文件/文件夹</code>，同样也对应一个解打包命令：<code>tar -xvf 打包后的包名</code></p>
+
+<blockquote>
+<ul>
+<li>-c: 打包</li>
+<li>-x: 解包</li>
+<li>-v: 显示过程</li>
+<li>-f: 指定打包后的文件名</li>
+</ul>
+</blockquote>
+
+<p>有了这个命令之后我们就可以将一切文件或文件夹先打包再压缩，这样就不会出现文件夹不能压缩的问题了，但是如果真的这样做，总觉得不得劲，难倒就不能一步到位吗？肯定是可以的。</p>
+
+<p><strong>压缩和解压缩的终极解决方案：</strong>其实<code>tar</code>命令是支持直接压缩为<code>.tar.gz</code>格式的，命令为<code>tar -zcvf 压缩包名.tar.gz 源文件/文件夹</code>与上面相比选项中多了个<code>z</code>，即表示将打包后的文件压缩为<code>.gz</code>格式的压缩包。同理，<code>.tar.gz</code>格式的压缩包对应的解压命令为<code>tar -zxvf 压缩包名.tar.gz</code></p>
+
+<blockquote>
+<p>Tips：<code>.tar.gz</code>也是Linux软件源码包最常见的压缩格式。</p>
+</blockquote>
+
+<h3 id="toc_42">3、软件包安装</h3>
+
+<p>在Linux中，软件包分为源码包和二进制包（RPM包）两种，其实本来就只有源码包一种，但是由于源码包安装需要经过配置、编译、安装这些繁琐的步骤，安装速度极其慢，而且很容易报错，所以才出现了二进制包，它其实就是由源码包配置编译来的。Linux的安装镜像里就已经包含了所有编译好的RPM包供我们直接安装使用，我们只有将系统镜像挂载进来就可以了。</p>
+
+<h4 id="toc_43">3.1 RPM包手动安装</h4>
+
+<p>RPM包安装命令为：<code>rpm -ivh 包全名</code>，选项释义如下：</p>
+
+<ul>
+<li>-i: install 安装</li>
+<li>-v: verbose 显示详细信息</li>
+<li>-h: hash 显示进度</li>
+</ul>
+
+<p>命令很简单，但是过程一点都不简单，下面我们用一个小示例来看一下RPM包的安装过程：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_1.png" alt="CentOS_rpm_httpd_1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_2.png" alt="CentOS_rpm_httpd_2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_3.png" alt="CentOS_rpm_httpd_3" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>从上面的安装过程中我们可以看到，RPM包之间还有依赖关系，而且错综复杂，难以捉摸，所以如果按照这种方式去装软件，那估计软件安装好黄花菜都凉了~</p>
+
+<h4 id="toc_44">3.2 yum在线安装</h4>
+
+<p>为了解决上面RPM包安装过程繁琐的问题，Linux将所有软件包放到官方服务器上，并且开发了一个yum安装工具，当进行yum在线安装的时候，它可以自动解决依赖问题。类似于iOS的CocoaPods，Java的Maven，前端的npm一样。</p>
+
+<h5 id="toc_45">yum源 配置文件</h5>
+
+<p>yum是Redhat系列的Linux自带的软件安装工具（Debian系列是apt-get），yum源就是指存放所有软件包的服务器地址，它的默认配置文件为：<code>/etc/yum.repos.d/CentOS-Base.repo</code></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_yum_base.png" alt="CentOS_yum_base" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>配置文件中的每一段内容都相似，具体字段说明如下表：</p>
+
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>[base]</td>
+<td>容器名称，一定要放在[]中</td>
+</tr>
+<tr>
+<td>name</td>
+<td>容器说明，内容自己随意</td>
+</tr>
+<tr>
+<td>mirrorlist</td>
+<td>镜像站点，与baseurl二选一，即软件包的服务器地址</td>
+</tr>
+<tr>
+<td>baseurl</td>
+<td>yum源服务器地址，默认是CentOS官方yum源，国内可能速度较慢，建议换成国内的<a href="http://mirrors.163.com/.help/centos.html">网易镜像源</a>或者<a href="https://opsx.alibaba.com/mirror">阿里镜像源</a></td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>设置此容器是否生效，省略不写或写成enabled=1都是生效，写成enabled=0则不生效</td>
+</tr>
+<tr>
+<td>gpgcheck</td>
+<td>RPM的数字证书是否生效，1表示生效，0表示不生效</td>
+</tr>
+<tr>
+<td>gpgkey</td>
+<td>数字证书的公钥文件保存位置，不要修改。</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="toc_46">光盘搭建本地yum源</h5>
+
+<p>很多时候在有网络的情况下我们使用yum在线源来安装软件就可以了，但是偏偏他就有这么一种情况，没有网络！！那么这个时候我们又想起了我们的系统镜像光盘里其实已经有所有我们需要的软件包了，那么它不就相当于是一个yum源了吗？没错，确实是这样的，所以我们可以使用光盘来做本地yum源，步骤如下：</p>
+
+<ul>
+<li>挂载光盘：<code>mount /dev/sr0 /media</code></li>
+<li>使网络yum源失效：在上面配置文件介绍的时候我们知道，只需要将配置文件里容器的enabled值设置为0就可以了，但是默认配置文件中有好几个容器，每个都设置一遍比较麻烦，所以既然yum源的默认配置文件为<code>/etc/yum.repos.d/CentOS-Base.repo</code>，那么如果我将这个文件删掉它就不起作用了吧？这样是可以，但是我们说对于系统默认配置文件我们要本着<strong><u>只备份不删除</u></strong>的原则，所以我们只需要将这个文件改个名备份一下即可<code>mv CentOS-Base.repo CentOS-Base.repo.bak</code></li>
+<li>使光盘yum源生效：修改光盘的yum配置文件<code>/etc/yum.repos.d/CentOS-Media.repo</code>，如下图：
+<img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_yum_media.png" alt="CentOS_yum_media"/></li>
+</ul>
+
+<p>完成上述步骤后执行<code>yum list</code>即可验证本地yum源是否生效。</p>
+
+<h5 id="toc_47">通过yum安装软件</h5>
+
+<p>首先，我们可以通过<code>yum search 关键字</code>来查询yum源里是否有需要的软件包。</p>
+
+<p>yum安装命令为：<code>yum -y install 包名</code>，其中选项<code>-y</code>表示自动回答yes，例如：<code>yum -y install gcc</code></p>
+
+<p>上面我们使用rpm命令手动艰难的安装了httpd（也就是Apache服务器软件）的主包和<code>httpd-tools</code>，还有<code>httpd-manual</code>文档包和<code>httpd-devel</code>开发包没有安装，我们使用yum安装<code>yum -y install httpd-manual httpd-devel</code></p>
+
+<blockquote>
+<p>Apache是个急性子，安装好就自动启动了。<br/>
+RPM包安装的Apache手动启动的方式有两种：一种是安装好的可执行命令启动：<code>/usr/sbin/httpd -k start</code>或者<code>/usr/sbin/apachectl start</code>，另外一种是通过Linux服务启动：<code>service httpd restart</code></p>
+</blockquote>
+
+<h4 id="toc_48">3.3 源码包安装</h4>
+
+<p>源码包安装时一定要安装在指定位置，因为通过源码包安装的软件没有卸载命令，所以如果你想卸载的时候只要把指定位置下的文件全部删掉就可以了，安装位置一般是：<code>/usr/local/软件名/</code></p>
+
+<p>使用源码包安装之前必须保证系统已安装<code>gcc</code>：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_gcc.png" alt="CentOS_rpm_gcc" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>下载源码包，一般Linux的软件包都有对应的官方网站下载地址，我们下面以Apache软件来讲解，Apache 2.4下载地址为：<a href="http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz">http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz</a>，执行<code>wget http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz</code>即可将软件源码包下载到当前路径下。</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_wget_1.png" alt="CentOS_wget_1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_wget_2.png" alt="CentOS_wget_2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<blockquote>
+<p>1.由于Apache 2.4依赖Apache的运行环境下的两个包 <a href="http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz">apr</a> 和 <a href="http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz">apt-util</a><br/>
+2.所以采用同样的wget方式将其下载下来<br/>
+3.另外，Apache编译时还依赖了<code>pcre-config</code>，它属于<code>pcre-devel</code>，所以我们要使用<code>yum -y install pcre-devel</code>命令安装好这个依赖包</p>
+</blockquote>
+
+<p>全部下载完成后将其一一解压缩到下载的目录下：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_tar_1.png" alt="CentOS_tar_1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>解压完成之后，首先我们要安装的是<code>apr</code>，所以需要进入到解压后的<code>apr-1.6.5</code>目录下，然后依次执行：</p>
+
+<ul>
+<li><code>./configure --prefix=/usr/local/apr</code>: 软件配置与检查，主要是将软件安装的功能选项和系统环境信息写入Makefile，为后续的make做准备，<strong>这里<code>--prefix=PATH</code>一定不能省略</strong>；</li>
+<li><code>make</code>：编译，这个不用多说。清空编译缓存执行<code>make clean</code>；</li>
+<li><code>make install</code>：安装；</li>
+</ul>
+
+<p>安装完成之后，在<code>/usr/local/apr</code>下就生成了相应的文件。</p>
+
+<p>然后我们需要安装的是<code>apr-util</code>，所以需要进入到解压后的<code>apr-util-1.6.1</code>目录下，然后依次执行：</p>
+
+<ul>
+<li><code>./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr</code>: <code>apr-util</code>编译时要依赖<code>apr</code>，所以这里的<strong><code>--with-apr=PATH</code>是用来指定编译<code>apr-util</code>时依赖的<code>apr</code>使用哪一个</strong>；</li>
+<li><code>make</code>：编译；</li>
+<li><code>make install</code>：安装；</li>
+</ul>
+
+<p>安装完成之后，在<code>/usr/local/apr-util</code>下就生成了相应的文件。</p>
+
+<p>最后，我们进入解压好的<code>httpd-2.4.37</code>目录下：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_tar_2.png" alt="CentOS_tar_2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>依次执行：</p>
+
+<ul>
+<li><code>./configure --prefix=/usr/local/apache2 --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util</code>: 编译时要依赖<code>apr</code>和<code>apr-util</code>；</li>
+<li><code>make</code>：编译；</li>
+<li><code>make install</code>：安装；</li>
+</ul>
+
+<p>安装完成之后可以看到如下效果：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_apache2.png" alt="CentOS_apache2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>执行<code>/usr/local/apache2/bin/apachectl start</code>即可开启Apache服务器，通过浏览器访问效果如下（关闭防火墙）：</p>
+
+<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_httpd_work.png" alt="CentOS_httpd_work" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+
+</div></body>
+
+</html>
