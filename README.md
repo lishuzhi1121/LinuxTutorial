@@ -1,6 +1,6 @@
 # 全栈最后一公里 —— Linux从入门到实践
 
-![full_stack-c](http://pbe07x0ww.bkt.clouddn.com/full_stack.jpg)
+![full_stack-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/full_stack.jpg)
 
 > 傻瓜都能写出计算机能理解的程序，而好的程序员能写出人能读懂的代码。
 
@@ -8,7 +8,7 @@
 
 ## 一、前世今生
 
-![linux_icon-c](http://pbe07x0ww.bkt.clouddn.com/linux_icon.png)
+![linux_icon-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/linux_icon.png)
 
 ### 1、系统来源
 
@@ -16,7 +16,7 @@
 
 那么这个时候另一个家伙出现了，*Linus Torvalds*，当时是芬兰赫尔辛基大学大三的大学生，他以Minix为模板，自己开发了一些软件和并且集中了当时网上呼声较高的一些补丁程序重新写了一个操作系统——Linux操作系统。
 
-![Linus Torvalds-c](http://pbe07x0ww.bkt.clouddn.com/Linus Torvalds.png)
+![](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/Linus Torvalds.png)
 
 Linus选择了芬兰的吉祥物企鹅作为该系统的标识，并在1991年的时候就将Linux操作系统发布了，短短20多年的时间，Linux系统就已经在服务器领域占据了举足轻重的地位。
 
@@ -28,7 +28,7 @@ Linux经过20多年的发展已经拥有了非常众多的版本，但是我们�
 
 Linux内核版本就是核心版本，它由 [Linux内核官网](https://www.kernel.org/) 发行，目前最新的内核版本是4.19版本。
 
-![Linux_core-c](http://pbe07x0ww.bkt.clouddn.com/Linux_core.png)
+![Linux_core-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/Linux_core.png)
 
 > 值得一提的是：对于服务器领域而言，一般不会采用最新版本，线上我们要本着“猥琐发育，不要浪”的原则！
 
@@ -36,7 +36,7 @@ Linux内核版本就是核心版本，它由 [Linux内核官网](https://www.ker
 
 内核版本是由官网发布，任何人都可以去免费下载使用的，但是比如基于内核版本之上开发一些工具，开发一个桌面，放点好看的图标，或者做一些裁剪等，那么它就会变成各个厂商的发行版本。
 
-![Linux_versions-c](http://pbe07x0ww.bkt.clouddn.com/Linux_versions.png)
+![Linux_versions-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/Linux_versions.png)
 
 在上面众多版本中，比较流行的主要是Redhat和Ubuntu，其中Ubuntu的优势主要在于界面优化的非常漂亮，有的时候都认不出来这是一个Linux系统，但是这些花里胡哨的东西并不适合服务器使用，上面我们说过服务器一定要稳定优先，所以一般不会在服务器上去安装图像界面，所以下面本教程也会以Redhat系列来进行，只不过有一点需要说的是Redhat部分功能是收费的，所以我们会以Redhat的替身CentOS操作系统为例进行讲解。
 
@@ -48,7 +48,7 @@ Linux内核版本就是核心版本，它由 [Linux内核官网](https://www.ker
 
 在Mac上（PS：下述所有内容如无特殊说明都是基于Mac进行）常用的虚拟机就两种 [VMware](https://www.vmware.com/cn.html) 和 [Parallels Desktop](https://www.parallels.com/cn/) ，相同点是这两个都收费，而且价格不菲，不同点是我这里有可以使用的“~~正版VMware~~”，下载链接:https://pan.baidu.com/s/1dtnZ1V_evPFbJCrER2l9mg  密码:6o3p 关于如何在Mac上把VMware安装上就不作过多赘述了，与安装其他软件没有什么区别，一路Next然后完成之后使用天朝独特的Keygen去“~~优化~~（破解）”一下就可以使用了。
 
-![VMware_wel-c](http://pbe07x0ww.bkt.clouddn.com/VMware_wel.png)
+![VMware_wel-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_wel.png)
 
 VMware安装完成之后打开应该是上面这样的，这里我们主要介绍三个功能，首先是左边一半重点便捷的**“从光盘或映像安装”**，这个功能没什么好说，给一个iso镜像文件然后就一路向西的安装完成了，其次是**“导入现有虚拟机”**，如果你已经有安装好的虚拟机文件(ps:使用虚拟机安装系统的时候会生成一个文件保存安装的系统数据信息)那么可以直接通过这个功能加载出来，最后是**“创建自定义虚拟机”**，这个功能就相当于你去电脑市场买了一个只有boot系统的电脑，里面并没有操作系统，需要你手动安装。我们下面安装Linux系统的时候也使用该功能。
 
@@ -82,15 +82,15 @@ VMware安装完成之后打开应该是上面这样的，这里我们主要介�
 
 在前面我们已经安装好了VMware，启动它，选择**“创建自定义虚拟机”**，点击**“继续”**，之后看到如下画面：
 
-![VMware_chos-c](http://pbe07x0ww.bkt.clouddn.com/VMware_chos.png)
+![VMware_chos-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_chos.png)
 
 然后选择**“Linux”**->**“CentOS 64位”**点击**“继续”**，画面如下：
 
-![VMware_chhd-c](http://pbe07x0ww.bkt.clouddn.com/VMware_chhd.png)
+![VMware_chhd-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_chhd.png)
 
 选择**“新建虚拟磁盘”**，点击**“继续”**，就可以完成虚拟机的创建了，出现如下画面，点击**“完成”**，选择好虚拟机文件存放路径，即可完成虚拟机的创建。
 
-![VMware_finish-c](http://pbe07x0ww.bkt.clouddn.com/VMware_finish.png)
+![VMware_finish-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_finish.png)
 
 #### 3.2 安装Linux
 
@@ -98,77 +98,77 @@ VMware安装完成之后打开应该是上面这样的，这里我们主要介�
 
 下载好系统镜像之后，打开刚安装好的虚拟机，点击**“设置”**按钮，打开设置面板：
 
-![VMware_st-c](http://pbe07x0ww.bkt.clouddn.com/VMware_st.png)
+![VMware_st-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_st.png)
 
 选择**“CD/DVD(IDE)”**：
 
-![VMware_cd-c](http://pbe07x0ww.bkt.clouddn.com/VMware_cd.png)
+![VMware_cd-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_cd.png)
 
 勾选“连接 CD/DVD 驱动器”，然后下拉选择“选择一个光盘或光盘映像...”，选择我们下载好的系统镜像：
 
-![VMware_sel_iso-c](http://pbe07x0ww.bkt.clouddn.com/VMware_sel_iso.png)
+![VMware_sel_iso-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_sel_iso.png)
 
-![VMware_iso-c](http://pbe07x0ww.bkt.clouddn.com/VMware_iso.png)
+![VMware_iso-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_iso.png)
 
 这就跟我们平时安装电脑在光驱里插入系统光盘一样，下面我们就可以启动虚拟机进行Linux系统安装了。
 
 启动虚拟机，虚拟机会自动读取光驱里的系统镜像，从而启动Linux系统的安装程序，如下图：
 
-![CentOS_install_start-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_start.png)
+![CentOS_install_start-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_start.png)
 
 默认选择第一项即可，直接回车，会出现这样一个镜像数据完整性检测界面，简单的说就是用来检测你下载的这个系统镜像是不是可以使用，这里我们一般都认为是可用的不再进行检测，所以直接选择**“Skip”**：
 
-![CentOS_install_check-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_check.png)
+![CentOS_install_check-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_check.png)
 
 之后就很简单了，一路**“Next”**就行：
 
-![CentOS_installz_wel-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_installz_wel.png)
+![CentOS_installz_wel-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_installz_wel.png)
 
-![CentOS_install_lan-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_lan.png)
+![CentOS_install_lan-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_lan.png)
 
-![CentOS_install_kb-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_kb.png)
+![CentOS_install_kb-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_kb.png)
 
-![CentOS_install_bs-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_bs.png)
+![CentOS_install_bs-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_bs.png)
 
 下面这里需要注意一下，如果曾经虚拟机安装过可能会有这个提示，直接忽略掉就可以了，选择**“是，忽略所有数据”**，然后点击**“下一步”**：
 
-![CentOS_install_dc-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_dc.png)
+![CentOS_install_dc-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_dc.png)
 
 下面这里的主机名默认就好，因为对于Linux来说同一个局域网里并不是靠主机名来进行通信的，所以同一个局域网里可以有多个主机名相同的Linux计算机，这一点和Windows不一样。继续**“下一步”**：
 
-![CentOS_install_host-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_host.png)
+![CentOS_install_host-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_host.png)
 
-![CentOS_install_time-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_time.png)
+![CentOS_install_time-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_time.png)
 
-![CentOS_install_pwd-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_pwd.png)
+![CentOS_install_pwd-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_pwd.png)
 
 在上面设置好密码之后就到下面选择安装类型了，其实就是选择分区方式，这里前面我们讲了关于Linux系统分区的相关知识，所以我们选择**“创建自定义布局”**，然后点击**“下一步”**：
-![CentOS_install_layout-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout.png)
+![CentOS_install_layout-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_layout.png)
 
 下一步之后我们看到了如下的图形化分区界面，选择**“空闲”**的硬盘驱动器，点击**“创建”**来创建我们想要的分区：
-![CentOS_install_layout_start-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_start.png)
+![CentOS_install_layout_start-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_layout_start.png)
 
 选择**“标准分区”**，点击**“创建”**：
 
-![CentOS_install_layout_c-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_c.png)
+![CentOS_install_layout_c-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_layout_c.png)
 
 选择好**“挂载点”**和**“大小”**，点击**“确定”**：
 
-![CentOS_install_layout_hm](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_hm.png)
+![CentOS_install_layout_hm](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_layout_hm.png)
 
 重复上面的创建分区操作，根据之前说的系统分区要求做好分区后点击**“下一步”**，完整的分区创建完成后如下图：
 
-![CentOS_install_full_lay-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_full_lay.png)
+![CentOS_install_full_lay-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_full_lay.png)
 
 选择**“格式化”**，点击**“下一步”**：
 
-![CentOS_install_fm-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_fm.png)
+![CentOS_install_fm-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_fm.png)
 
 选择**“将修改写入磁盘”**，点击**“下一步”**：
 
-![CentOS_install_wr-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_wr.png)
+![CentOS_install_wr-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_wr.png)
 
-![CentOS_install_in-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_in.png)
+![CentOS_install_in-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_in.png)
 
 下面这里选择安装方式需要注意一下，这几种安装方式的说明如下：
 
@@ -185,27 +185,27 @@ VMware安装完成之后打开应该是上面这样的，这里我们主要介�
 > 但是由于我们初学者对Linux软件安装并不熟悉，所以我们为了后面的讲解方便，我们这里就选择Basic Server，这样安装完成就包含了一些基本的软件包，使用起来更方便；
 
 选择**“Basic Server”**，点击**“下一步”**：
-![CentOS_install_basic-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_basic.png)
+![CentOS_install_basic-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_basic.png)
 
 下面就启动了系统安装程序，静静的等待就好...
 
-![CentOS_install_ing0-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing0.png)
+![CentOS_install_ing0-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_ing0.png)
 
-![CentOS_install_ing1-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing1.png)
+![CentOS_install_ing1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_ing1.png)
 
-![CentOS_install_ing2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing2.png)
+![CentOS_install_ing2-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_ing2.png)
 
 经过了上面漫长的等待，出现下面的画面，我们就完成了Linux系统的安装，点击**“重新引导”**：
 
-![CentOS_install_cmp-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_install_cmp.png)
+![CentOS_install_cmp-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_cmp.png)
 
 重新引导完成后，CentOS系统启动，启动成功后界面如下，只有一个命令行字符界面，其他什么都没有:
 
-![CentOS_start-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_start.png)
+![CentOS_start-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_start.png)
 
 我们输入用户名：root和密码即可登录，登录成功后如下图：
 
-![CentOS_login-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_login.png)
+![CentOS_login-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_login.png)
 
 安装完成之后在`/root`目录下有三个安装日志文件，说明如下：
 
@@ -225,10 +225,10 @@ OK，我的教程到此~~结束~~（开始）了。。。
 
 好吧，言归正传，在学习Linux之前我们了解了她的前世今生，可是到目前为止我们还不知道她的庐山真面目呢，下面我们就来介绍一下Linux的文件结构：
 
-![CentOS_files-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_files.png)
+![CentOS_files-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_files.png)
 
 
-![linux-file-system-hierarchy-c](http://pbe07x0ww.bkt.clouddn.com/linux-file-system-hierarchy.png)
+![linux-file-system-hierarchy-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/linux-file-system-hierarchy.png)
 
 
 | 目录 | 描述 |
@@ -259,13 +259,13 @@ OK，我的教程到此~~结束~~（开始）了。。。
 #### 1.1 OSI七层网络模型
 下图详细描述了OSI七层网络模型架构：
 
-![ISO:OSI七层网络模型-c](http://pbe07x0ww.bkt.clouddn.com/ISO:OSI七层网络模型.png)
+![ISO:OSI七层网络模型-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/ISO:OSI七层网络模型.png)
 
 #### 1.2 TCP/IP四层网络模型
 
 我们说上面的七层网络模型很经典，但是在实际应用中很多时候网络架构并不是这样的，而是采用TCP/IP四层网络模型，那么它们之间到底有怎样的联系呢？我们来看下图：
 
-![IMG_A479D37BC665-1-c](http://pbe07x0ww.bkt.clouddn.com/IMG_A479D37BC665-1.jpeg)
+![IMG_A479D37BC665-1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_A479D37BC665-1.jpeg)
 
 #### 1.3 关于IP地址
 
@@ -281,15 +281,15 @@ OK，我的教程到此~~结束~~（开始）了。。。
 
 子网掩码是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机的位掩码。好吧，说人话就是子网掩码是用来确定两个IP是否属于同一个网段的。子网掩码不能单独存在，它必须结合IP地址一起使用。既然这样我们就结合上面三类IP地址来看一下子网掩码，一般情况下，不同类别的IP地址与子网掩码具有如下对应关系：
 
-![IMG_D5346D0871D2-1-c](http://pbe07x0ww.bkt.clouddn.com/IMG_D5346D0871D2-1.jpeg)
+![IMG_D5346D0871D2-1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_D5346D0871D2-1.jpeg)
 
 > A类IP地址与子网掩码的对应关系
 
-![IMG_14FE850B0E9A-1-c](http://pbe07x0ww.bkt.clouddn.com/IMG_14FE850B0E9A-1.jpeg)
+![IMG_14FE850B0E9A-1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_14FE850B0E9A-1.jpeg)
 
 > B类IP地址与子网掩码的对应关系
 
-![IMG_9F70E8FDFEF3-1-c](http://pbe07x0ww.bkt.clouddn.com/IMG_9F70E8FDFEF3-1.jpeg)
+![IMG_9F70E8FDFEF3-1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_9F70E8FDFEF3-1.jpeg)
 
 > C类IP地址与子网掩码的对应关系
 
@@ -311,7 +311,7 @@ OK，我的教程到此~~结束~~（开始）了。。。
 
 DNS，域名解析服务，主要负责把域名解析成IP地址，细节不作过多描述，这里需要说明的是DNS的查询过程，详见下图：
 
-![IMG_1867-c](http://pbe07x0ww.bkt.clouddn.com/IMG_1867.PNG)
+![IMG_1867-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_1867.PNG)
 
 #### 1.7 关于网关（路由器）
 
@@ -384,11 +384,11 @@ DNS配置文件路径为：`/etc/resolve.conf`，该配置文件说明如下：
 
 完成上面的配置后，我们的网卡配置就完成了，下面我们需要重启一下网络服务来让网卡工作，执行命令：`service network restart`，如下图：
 
-![CentOS_network_restart-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_network_restart.png)
+![CentOS_network_restart-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_network_restart.png)
 
 网络服务重启完成之后我们就可以执行命令：`ifconfig`来查看Linux系统的IP地址，也可以访问互联网了，如下图：
 
-![CentOS_ifconfig-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_ifconfig.png)
+![CentOS_ifconfig-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_ifconfig.png)
 
 OK，到这里为止，Linux网络管理我们就全部讲完了！！
 
@@ -406,7 +406,7 @@ OK，到这里为止，Linux网络管理我们就全部讲完了！！
 
 当前系统中所有用户组信息都保存在`/etc/group`这个文件中，执行`vim /etc/group`可以看到如下内容：
 
-![CentOS_etc_group-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_group.png)
+![CentOS_etc_group-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_group.png)
 
 每一行的内容以冒号分隔，释义如下：
 
@@ -422,7 +422,7 @@ OK，到这里为止，Linux网络管理我们就全部讲完了！！
 
 当前系统中所有用户组的密码信息都保存在`/etc/gshadow`这个文件中，执行`vim /etc/gshadow`可以看到如下内容：
 
-![CentOS_etc_gshadow-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_gshadow.png)
+![CentOS_etc_gshadow-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_gshadow.png)
 
 与用户组信息一样，每一行的内容以冒号分隔，释义如下：
 
@@ -437,7 +437,7 @@ OK，到这里为止，Linux网络管理我们就全部讲完了！！
 
 当前系统中所有用户信息都保存在`/etc/passwd`这个文件中，执行`vim /etc/passwd`可以看到如下内容：
 
-![CentOS_etc_passwd-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_passwd.png)
+![CentOS_etc_passwd-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_passwd.png)
 
 同样，每一行的内容以冒号分隔，释义如下：
 
@@ -453,7 +453,7 @@ OK，到这里为止，Linux网络管理我们就全部讲完了！！
 
 当前系统中所有用户信息都保存在`/etc/shadow`这个文件中，执行`vim /etc/shadow`可以看到如下内容：
 
-![CentOS_etc_shadow-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_shadow.png)
+![CentOS_etc_shadow-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_shadow.png)
 
 这个文件就没什么好说的了，其中第二个字段就表示用户密码，采用的是hash加盐的加密方式。
 
@@ -487,11 +487,11 @@ OK，和用户和用户组相关的文件都介绍完了，这几个文件我们
 
 这里我们所说的权限管理实际上就是指Linux的文件权限管理，因为Linux一切皆文件！下面我们就来看一下Linux文件权限是怎么管理的。执行`ls -l /etc`可以看到如下内容：
 
-![CentOS_ls_etc-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_ls_etc.png)
+![CentOS_ls_etc-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_ls_etc.png)
 
 图中红色框部分就表示对应文件的权限，详细定义如下：
 
-![file_rights-c](http://pbe07x0ww.bkt.clouddn.com/file_rights.png)
+![file_rights-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/file_rights.png)
 
 > 关于文件类型：除了上面图中展示的三种类型的文件之外还有其他类型的文件，但是，友情提示，如果你不是特别熟悉Linux的文件系统，那么当你看到除以上三种类型文件的时候请你绕着走！
 > 关于特殊权限：我就只说一点，如无特殊需求，请无视它，谢谢！
@@ -509,11 +509,11 @@ OK，和用户和用户组相关的文件都介绍完了，这几个文件我们
 
 权限是Linux文件系统的核心，本质目的还是为了安全，其实前面介绍完文件权限的时候大家对权限的作用就基本上心里有数了，这里我需要敲黑板的只有一个问题：**“对文件有读写权限就能删除文件吗？？”**
 
-![CentOS_rm_test-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_rm_test.png)
+![CentOS_rm_test-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rm_test.png)
 
 从上图我们就可以看到，不是这样的，就算你对文件有读写执行的一切权利，也不代表你就能删除文件，主要原因跟Linux的文件系统和存储结构有关，简单的解释为你对这个文件的权限只是表示了你对这个文件内的数据所拥有的权限，而对于一切皆文件的Linux来说，这个文件本身实际上是存储在`/home/sands/test`文件夹下的，所以它其实是这个文件夹文件内的数据，要操作它那就得拥有这个文件夹的权限。
 
-![CentOS_ll_test-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_ll_test.png)
+![CentOS_ll_test-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_ll_test.png)
 
 > 可以看到我们当前用户对`test`文件夹并不具备写权限，也就解释了为什么我们无法将这个文件夹里面的`test.sh`文件删掉了。
 
@@ -538,20 +538,20 @@ OK，和用户和用户组相关的文件都介绍完了，这几个文件我们
 
 说了这么多文件权限的东西，似乎我们还忽略了一点，就是如果我们直接创建一个文件，那么它的权限是什么呢？为什么是这样呢？
 
-![CentOS_ll_664-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_ll_664.png)
+![CentOS_ll_664-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_ll_664.png)
 
 从上图可以看到，在非root用户下直接创建一个文件默认权限为664，下面我们就来解释一下这是为什么：
 
 在开始解释之前，我需要大家明白一个原则性问题，之前我们也提到过，对于Linux来说文件的最高权限是x执行，但是Linux认为这个最高权限太危险了，所以文件默认是不能新建为可执行文件的，必须手动赋予执行权限，这样一来文件默认的最大权限就只能是666了。那是不是说新建的文件默认权限就是666了呢？显然不是，这还得受一个叫作`umask`值的家伙的管制：
 
-![CentOS_umask-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_umask.png)
+![CentOS_umask-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_umask.png)
 
 > 第一位0：表示文件特殊权限
 > 后面三位002：表示文件默认权限
 
 所以默认文件权限的具体计算方式如下图：
 
-![CentOS_file_default-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_file_default.png)
+![CentOS_file_default-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_file_default.png)
 
 现在我们知道了Linux文件的默认权限是这么来的，那其实文件夹默认权限也是同样的方式计算来的，但不同的是我们前面说过文件夹的最高权限是w写，所以Linux就认为文件夹的写并不具备什么危险，所以文件夹默认的最大权限就是777，所以计算默认权限的时候也应该用777来进行计算。
 
@@ -560,7 +560,7 @@ OK，和用户和用户组相关的文件都介绍完了，这几个文件我们
 * 临时修改：直接执行`umask 0022`
 * 永久修改：修改`/etc/profile`这个环境变量文件
 
-![CentOS_etc_profile_umask-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_profile_umask.png)
+![CentOS_etc_profile_umask-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_profile_umask.png)
 
 ## 七、Linux 软件安装管理
 
@@ -574,7 +574,7 @@ OK，和用户和用户组相关的文件都介绍完了，这几个文件我们
 
 * 挂载光盘：`mount /dev/sr0 /media`表示将光盘挂载到`/media`目录下，如下图：
 
-![CentOS_mount_sr0-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_mount_sr0.png)
+![CentOS_mount_sr0-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_mount_sr0.png)
 
 * 挂载优盘：先执行`fdisk -l`来查看优盘设备文件名，再执行`mount /dev/sdb1 /mnt/usb`来将文件名为sdb1的优盘挂载到mnt文件夹下的usb文件夹里
 
@@ -618,11 +618,11 @@ RPM包安装命令为：`rpm -ivh 包全名`，选项释义如下：
 
 命令很简单，但是过程一点都不简单，下面我们用一个小示例来看一下RPM包的安装过程：
 
-![CentOS_rpm_httpd_1-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_1.png)
+![CentOS_rpm_httpd_1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rpm_httpd_1.png)
 
-![CentOS_rpm_httpd_2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_2.png)
+![CentOS_rpm_httpd_2-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rpm_httpd_2.png)
 
-![CentOS_rpm_httpd_3-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_3.png)
+![CentOS_rpm_httpd_3-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rpm_httpd_3.png)
 
 从上面的安装过程中我们可以看到，RPM包之间还有依赖关系，而且错综复杂，难以捉摸，所以如果按照这种方式去装软件，那估计软件安装好黄花菜都凉了~
 
@@ -634,7 +634,7 @@ RPM包安装命令为：`rpm -ivh 包全名`，选项释义如下：
 
 yum是Redhat系列的Linux自带的软件安装工具（Debian系列是apt-get），yum源就是指存放所有软件包的服务器地址，它的默认配置文件为：`/etc/yum.repos.d/CentOS-Base.repo`
 
-![CentOS_yum_base-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_yum_base.png)
+![CentOS_yum_base-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_yum_base.png)
 
 配置文件中的每一段内容都相似，具体字段说明如下表：
 
@@ -655,7 +655,7 @@ yum是Redhat系列的Linux自带的软件安装工具（Debian系列是apt-get�
 * 挂载光盘：`mount /dev/sr0 /media`
 * 使网络yum源失效：在上面配置文件介绍的时候我们知道，只需要将配置文件里容器的enabled值设置为0就可以了，但是默认配置文件中有好几个容器，每个都设置一遍比较麻烦，所以既然yum源的默认配置文件为`/etc/yum.repos.d/CentOS-Base.repo`，那么如果我将这个文件删掉它就不起作用了吧？这样是可以，但是我们说对于系统默认配置文件我们要本着**_只备份不删除_**的原则，所以我们只需要将这个文件改个名备份一下即可`mv CentOS-Base.repo CentOS-Base.repo.bak`
 * 使光盘yum源生效：修改光盘的yum配置文件`/etc/yum.repos.d/CentOS-Media.repo`，如下图：
-![CentOS_yum_media](http://pbe07x0ww.bkt.clouddn.com/CentOS_yum_media.png)
+![CentOS_yum_media](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_yum_media.png)
 
 完成上述步骤后执行`yum list`即可验证本地yum源是否生效。
 
@@ -676,13 +676,13 @@ yum安装命令为：`yum -y install 包名`，其中选项`-y`表示自动回�
 
 使用源码包安装之前必须保证系统已安装`gcc`：
 
-![CentOS_rpm_gcc-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_gcc.png)
+![CentOS_rpm_gcc-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rpm_gcc.png)
 
 下载源码包，一般Linux的软件包都有对应的官方网站下载地址，我们下面以Apache软件来讲解，Apache 2.4下载地址为：[http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz](http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz)，执行`wget http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz`即可将软件源码包下载到当前路径下。
 
-![CentOS_wget_1-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_wget_1.png)
+![CentOS_wget_1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_wget_1.png)
 
-![CentOS_wget_2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_wget_2.png)
+![CentOS_wget_2-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_wget_2.png)
 
 > 1.由于Apache 2.4依赖Apache的运行环境下的两个包 [apr](http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz) 和 [apt-util](http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz)
 > 2.所以采用同样的wget方式将其下载下来
@@ -690,7 +690,7 @@ yum安装命令为：`yum -y install 包名`，其中选项`-y`表示自动回�
 
 全部下载完成后将其一一解压缩到下载的目录下：
 
-![CentOS_tar_1-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_tar_1.png)
+![CentOS_tar_1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_tar_1.png)
 
 解压完成之后，首先我们要安装的是`apr`，所以需要进入到解压后的`apr-1.6.5`目录下，然后依次执行：
 
@@ -710,7 +710,7 @@ yum安装命令为：`yum -y install 包名`，其中选项`-y`表示自动回�
 
 最后，我们进入解压好的`httpd-2.4.37`目录下：
 
-![CentOS_tar_2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_tar_2.png)
+![CentOS_tar_2-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_tar_2.png)
 
 依次执行：
 
@@ -720,9 +720,9 @@ yum安装命令为：`yum -y install 包名`，其中选项`-y`表示自动回�
 
 安装完成之后可以看到如下效果：
 
-![CentOS_apache2-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_apache2.png)
+![CentOS_apache2-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_apache2.png)
 
 执行`/usr/local/apache2/bin/apachectl start`即可开启Apache服务器，通过浏览器访问效果如下（关闭防火墙）：
 
-![CentOS_httpd_work-c](http://pbe07x0ww.bkt.clouddn.com/CentOS_httpd_work.png)
+![CentOS_httpd_work-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_httpd_work.png)
 

@@ -47,8 +47,8 @@ pre,code,p code,li code{font-family:Menlo,Monaco,"Andale Mono","lucida console",
 
 pre{-webkit-border-radius:0.4em;-moz-border-radius:0.4em;-ms-border-radius:0.4em;-o-border-radius:0.4em;border-radius:0.4em;border:1px solid #e7dec3;line-height:1.45em;font-size:0.9rem;margin-bottom:2.1em;padding:.8em 1em;color:#586e75;overflow:auto; background-color:#fdf6e3;}
 
-:not(pre) > code{display:inline-block;text-indent:0em;white-space:no-wrap;background:#fff;font-size:0.9rem;line-height:1.5em;color:#555;border:1px solid #ddd;-webkit-border-radius:0.4em;-moz-border-radius:0.4em;-ms-border-radius:0.4em;-o-border-radius:0.4em;border-radius:0.4em;padding:0 .3em;margin:-1px 4px;}
-pre code{font-size:1em !important;background:none;border:none}
+p code,li code{display:inline-block;white-space:no-wrap;background:#fff;font-size:0.9rem;line-height:1.5em;color:#555;border:1px solid #ddd;-webkit-border-radius:0.4em;-moz-border-radius:0.4em;-ms-border-radius:0.4em;-o-border-radius:0.4em;border-radius:0.4em;padding:0 .3em;margin:-1px 4px;}
+p pre code,li pre code{font-size:1em !important;background:none;border:none}
 
 img{max-width:100%;padding: 8px 0px;}
 
@@ -263,7 +263,7 @@ pre[class*="language-"].line-numbers > code {
 <style> @media print{ code[class*="language-"],pre[class*="language-"]{overflow: visible; word-wrap: break-word !important;} }</style></head><body><div class="markdown-body">
 <h1 id="toc_0">全栈最后一公里 —— Linux从入门到实践</h1>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/full_stack.jpg" alt="full_stack" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/full_stack.jpg" alt="full_stack" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <blockquote>
 <p>傻瓜都能写出计算机能理解的程序，而好的程序员能写出人能读懂的代码。</p>
@@ -450,7 +450,7 @@ pre[class*="language-"].line-numbers > code {
 
 <h2 id="toc_1">一、前世今生</h2>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/linux_icon.png" alt="linux_icon" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/linux_icon.png" alt="linux_icon" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <h3 id="toc_2">1、系统来源</h3>
 
@@ -458,7 +458,7 @@ pre[class*="language-"].line-numbers > code {
 
 <p>那么这个时候另一个家伙出现了，<em>Linus Torvalds</em>，当时是芬兰赫尔辛基大学大三的大学生，他以Minix为模板，自己开发了一些软件和并且集中了当时网上呼声较高的一些补丁程序重新写了一个操作系统——Linux操作系统。</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/Linus%20Torvalds.png" alt="Linus Torvalds" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/Linus%20Torvalds.png" alt=""/></p>
 
 <p>Linus选择了芬兰的吉祥物企鹅作为该系统的标识，并在1991年的时候就将Linux操作系统发布了，短短20多年的时间，Linux系统就已经在服务器领域占据了举足轻重的地位。</p>
 
@@ -470,7 +470,7 @@ pre[class*="language-"].line-numbers > code {
 
 <p>Linux内核版本就是核心版本，它由 <a href="https://www.kernel.org/">Linux内核官网</a> 发行，目前最新的内核版本是4.19版本。</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/Linux_core.png" alt="Linux_core" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/Linux_core.png" alt="Linux_core" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <blockquote>
 <p>值得一提的是：对于服务器领域而言，一般不会采用最新版本，线上我们要本着“猥琐发育，不要浪”的原则！</p>
@@ -480,7 +480,7 @@ pre[class*="language-"].line-numbers > code {
 
 <p>内核版本是由官网发布，任何人都可以去免费下载使用的，但是比如基于内核版本之上开发一些工具，开发一个桌面，放点好看的图标，或者做一些裁剪等，那么它就会变成各个厂商的发行版本。</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/Linux_versions.png" alt="Linux_versions" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/Linux_versions.png" alt="Linux_versions" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>在上面众多版本中，比较流行的主要是Redhat和Ubuntu，其中Ubuntu的优势主要在于界面优化的非常漂亮，有的时候都认不出来这是一个Linux系统，但是这些花里胡哨的东西并不适合服务器使用，上面我们说过服务器一定要稳定优先，所以一般不会在服务器上去安装图像界面，所以下面本教程也会以Redhat系列来进行，只不过有一点需要说的是Redhat部分功能是收费的，所以我们会以Redhat的替身CentOS操作系统为例进行讲解。</p>
 
@@ -492,7 +492,7 @@ pre[class*="language-"].line-numbers > code {
 
 <p>在Mac上（PS：下述所有内容如无特殊说明都是基于Mac进行）常用的虚拟机就两种 <a href="https://www.vmware.com/cn.html">VMware</a> 和 <a href="https://www.parallels.com/cn/">Parallels Desktop</a> ，相同点是这两个都收费，而且价格不菲，不同点是我这里有可以使用的“<del>正版VMware</del>”，下载链接:<a href="https://pan.baidu.com/s/1dtnZ1V_evPFbJCrER2l9mg">https://pan.baidu.com/s/1dtnZ1V_evPFbJCrER2l9mg</a>  密码:6o3p 关于如何在Mac上把VMware安装上就不作过多赘述了，与安装其他软件没有什么区别，一路Next然后完成之后使用天朝独特的Keygen去“<del>优化</del>（破解）”一下就可以使用了。</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_wel.png" alt="VMware_wel" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_wel.png" alt="VMware_wel" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>VMware安装完成之后打开应该是上面这样的，这里我们主要介绍三个功能，首先是左边一半重点便捷的<strong>“从光盘或映像安装”</strong>，这个功能没什么好说，给一个iso镜像文件然后就一路向西的安装完成了，其次是<strong>“导入现有虚拟机”</strong>，如果你已经有安装好的虚拟机文件(ps:使用虚拟机安装系统的时候会生成一个文件保存安装的系统数据信息)那么可以直接通过这个功能加载出来，最后是<strong>“创建自定义虚拟机”</strong>，这个功能就相当于你去电脑市场买了一个只有boot系统的电脑，里面并没有操作系统，需要你手动安装。我们下面安装Linux系统的时候也使用该功能。</p>
 
@@ -536,15 +536,15 @@ pre[class*="language-"].line-numbers > code {
 
 <p>在前面我们已经安装好了VMware，启动它，选择<strong>“创建自定义虚拟机”</strong>，点击<strong>“继续”</strong>，之后看到如下画面：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_chos.png" alt="VMware_chos" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_chos.png" alt="VMware_chos" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>然后选择<strong>“Linux”</strong>-&gt;<strong>“CentOS 64位”</strong>点击<strong>“继续”</strong>，画面如下：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_chhd.png" alt="VMware_chhd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_chhd.png" alt="VMware_chhd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>选择<strong>“新建虚拟磁盘”</strong>，点击<strong>“继续”</strong>，就可以完成虚拟机的创建了，出现如下画面，点击<strong>“完成”</strong>，选择好虚拟机文件存放路径，即可完成虚拟机的创建。</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_finish.png" alt="VMware_finish" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_finish.png" alt="VMware_finish" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <h4 id="toc_11">3.2 安装Linux</h4>
 
@@ -552,77 +552,77 @@ pre[class*="language-"].line-numbers > code {
 
 <p>下载好系统镜像之后，打开刚安装好的虚拟机，点击<strong>“设置”</strong>按钮，打开设置面板：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_st.png" alt="VMware_st" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_st.png" alt="VMware_st" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>选择<strong>“CD/DVD(IDE)”</strong>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_cd.png" alt="VMware_cd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_cd.png" alt="VMware_cd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>勾选“连接 CD/DVD 驱动器”，然后下拉选择“选择一个光盘或光盘映像...”，选择我们下载好的系统镜像：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_sel_iso.png" alt="VMware_sel_iso" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_sel_iso.png" alt="VMware_sel_iso" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/VMware_iso.png" alt="VMware_iso" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/VMware_iso.png" alt="VMware_iso" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>这就跟我们平时安装电脑在光驱里插入系统光盘一样，下面我们就可以启动虚拟机进行Linux系统安装了。</p>
 
 <p>启动虚拟机，虚拟机会自动读取光驱里的系统镜像，从而启动Linux系统的安装程序，如下图：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_start.png" alt="CentOS_install_start" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_start.png" alt="CentOS_install_start" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>默认选择第一项即可，直接回车，会出现这样一个镜像数据完整性检测界面，简单的说就是用来检测你下载的这个系统镜像是不是可以使用，这里我们一般都认为是可用的不再进行检测，所以直接选择<strong>“Skip”</strong>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_check.png" alt="CentOS_install_check" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_check.png" alt="CentOS_install_check" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>之后就很简单了，一路<strong>“Next”</strong>就行：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_installz_wel.png" alt="CentOS_installz_wel" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_installz_wel.png" alt="CentOS_installz_wel" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_lan.png" alt="CentOS_install_lan" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_lan.png" alt="CentOS_install_lan" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_kb.png" alt="CentOS_install_kb" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_kb.png" alt="CentOS_install_kb" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_bs.png" alt="CentOS_install_bs" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_bs.png" alt="CentOS_install_bs" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>下面这里需要注意一下，如果曾经虚拟机安装过可能会有这个提示，直接忽略掉就可以了，选择<strong>“是，忽略所有数据”</strong>，然后点击<strong>“下一步”</strong>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_dc.png" alt="CentOS_install_dc" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_dc.png" alt="CentOS_install_dc" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>下面这里的主机名默认就好，因为对于Linux来说同一个局域网里并不是靠主机名来进行通信的，所以同一个局域网里可以有多个主机名相同的Linux计算机，这一点和Windows不一样。继续<strong>“下一步”</strong>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_host.png" alt="CentOS_install_host" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_host.png" alt="CentOS_install_host" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_time.png" alt="CentOS_install_time" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_time.png" alt="CentOS_install_time" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_pwd.png" alt="CentOS_install_pwd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_pwd.png" alt="CentOS_install_pwd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>在上面设置好密码之后就到下面选择安装类型了，其实就是选择分区方式，这里前面我们讲了关于Linux系统分区的相关知识，所以我们选择<strong>“创建自定义布局”</strong>，然后点击<strong>“下一步”</strong>：<br/>
-<img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout.png" alt="CentOS_install_layout" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_layout.png" alt="CentOS_install_layout" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>下一步之后我们看到了如下的图形化分区界面，选择<strong>“空闲”</strong>的硬盘驱动器，点击<strong>“创建”</strong>来创建我们想要的分区：<br/>
-<img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_start.png" alt="CentOS_install_layout_start" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_layout_start.png" alt="CentOS_install_layout_start" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>选择<strong>“标准分区”</strong>，点击<strong>“创建”</strong>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_c.png" alt="CentOS_install_layout_c" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_layout_c.png" alt="CentOS_install_layout_c" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>选择好<strong>“挂载点”</strong>和<strong>“大小”</strong>，点击<strong>“确定”</strong>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_layout_hm.png" alt="CentOS_install_layout_hm"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_layout_hm.png" alt="CentOS_install_layout_hm"/></p>
 
 <p>重复上面的创建分区操作，根据之前说的系统分区要求做好分区后点击<strong>“下一步”</strong>，完整的分区创建完成后如下图：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_full_lay.png" alt="CentOS_install_full_lay" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_full_lay.png" alt="CentOS_install_full_lay" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>选择<strong>“格式化”</strong>，点击<strong>“下一步”</strong>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_fm.png" alt="CentOS_install_fm" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_fm.png" alt="CentOS_install_fm" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>选择<strong>“将修改写入磁盘”</strong>，点击<strong>“下一步”</strong>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_wr.png" alt="CentOS_install_wr" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_wr.png" alt="CentOS_install_wr" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_in.png" alt="CentOS_install_in" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_in.png" alt="CentOS_install_in" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>下面这里选择安装方式需要注意一下，这几种安装方式的说明如下：</p>
 
@@ -643,27 +643,27 @@ pre[class*="language-"].line-numbers > code {
 </blockquote>
 
 <p>选择<strong>“Basic Server”</strong>，点击<strong>“下一步”</strong>：<br/>
-<img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_basic.png" alt="CentOS_install_basic" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_basic.png" alt="CentOS_install_basic" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>下面就启动了系统安装程序，静静的等待就好...</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing0.png" alt="CentOS_install_ing0" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_ing0.png" alt="CentOS_install_ing0" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing1.png" alt="CentOS_install_ing1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_ing1.png" alt="CentOS_install_ing1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_ing2.png" alt="CentOS_install_ing2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_ing2.png" alt="CentOS_install_ing2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>经过了上面漫长的等待，出现下面的画面，我们就完成了Linux系统的安装，点击<strong>“重新引导”</strong>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_install_cmp.png" alt="CentOS_install_cmp" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_install_cmp.png" alt="CentOS_install_cmp" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>重新引导完成后，CentOS系统启动，启动成功后界面如下，只有一个命令行字符界面，其他什么都没有:</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_start.png" alt="CentOS_start" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_start.png" alt="CentOS_start" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>我们输入用户名：root和密码即可登录，登录成功后如下图：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_login.png" alt="CentOS_login" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_login.png" alt="CentOS_login" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>安装完成之后在<code>/root</code>目录下有三个安装日志文件，说明如下：</p>
 
@@ -685,9 +685,9 @@ pre[class*="language-"].line-numbers > code {
 
 <p>好吧，言归正传，在学习Linux之前我们了解了她的前世今生，可是到目前为止我们还不知道她的庐山真面目呢，下面我们就来介绍一下Linux的文件结构：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_files.png" alt="CentOS_files" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_files.png" alt="CentOS_files" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/linux-file-system-hierarchy.png" alt="linux-file-system-hierarchy" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/linux-file-system-hierarchy.png" alt="linux-file-system-hierarchy" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <table>
 <thead>
@@ -769,13 +769,13 @@ pre[class*="language-"].line-numbers > code {
 
 <p>下图详细描述了OSI七层网络模型架构：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/ISO:OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png" alt="ISO:OSI七层网络模型" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/ISO:OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B.png" alt="ISO:OSI七层网络模型" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <h4 id="toc_16">1.2 TCP/IP四层网络模型</h4>
 
 <p>我们说上面的七层网络模型很经典，但是在实际应用中很多时候网络架构并不是这样的，而是采用TCP/IP四层网络模型，那么它们之间到底有怎样的联系呢？我们来看下图：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_A479D37BC665-1.jpeg" alt="IMG_A479D37BC665-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_A479D37BC665-1.jpeg" alt="IMG_A479D37BC665-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <h4 id="toc_17">1.3 关于IP地址</h4>
 
@@ -821,19 +821,19 @@ pre[class*="language-"].line-numbers > code {
 
 <p>子网掩码是一种用来指明一个IP地址的哪些位标识的是主机所在的子网，以及哪些位标识的是主机的位掩码。好吧，说人话就是子网掩码是用来确定两个IP是否属于同一个网段的。子网掩码不能单独存在，它必须结合IP地址一起使用。既然这样我们就结合上面三类IP地址来看一下子网掩码，一般情况下，不同类别的IP地址与子网掩码具有如下对应关系：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_D5346D0871D2-1.jpeg" alt="IMG_D5346D0871D2-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_D5346D0871D2-1.jpeg" alt="IMG_D5346D0871D2-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <blockquote>
 <p>A类IP地址与子网掩码的对应关系</p>
 </blockquote>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_14FE850B0E9A-1.jpeg" alt="IMG_14FE850B0E9A-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_14FE850B0E9A-1.jpeg" alt="IMG_14FE850B0E9A-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <blockquote>
 <p>B类IP地址与子网掩码的对应关系</p>
 </blockquote>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_9F70E8FDFEF3-1.jpeg" alt="IMG_9F70E8FDFEF3-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_9F70E8FDFEF3-1.jpeg" alt="IMG_9F70E8FDFEF3-1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <blockquote>
 <p>C类IP地址与子网掩码的对应关系</p>
@@ -883,7 +883,7 @@ pre[class*="language-"].line-numbers > code {
 
 <p>DNS，域名解析服务，主要负责把域名解析成IP地址，细节不作过多描述，这里需要说明的是DNS的查询过程，详见下图：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/IMG_1867.PNG" alt="IMG_1867" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/IMG_1867.PNG" alt="IMG_1867" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <h4 id="toc_21">1.7 关于网关（路由器）</h4>
 
@@ -1039,11 +1039,11 @@ pre[class*="language-"].line-numbers > code {
 
 <p>完成上面的配置后，我们的网卡配置就完成了，下面我们需要重启一下网络服务来让网卡工作，执行命令：<code>service network restart</code>，如下图：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_network_restart.png" alt="CentOS_network_restart" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_network_restart.png" alt="CentOS_network_restart" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>网络服务重启完成之后我们就可以执行命令：<code>ifconfig</code>来查看Linux系统的IP地址，也可以访问互联网了，如下图：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_ifconfig.png" alt="CentOS_ifconfig" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_ifconfig.png" alt="CentOS_ifconfig" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>OK，到这里为止，Linux网络管理我们就全部讲完了！！</p>
 
@@ -1061,7 +1061,7 @@ pre[class*="language-"].line-numbers > code {
 
 <p>当前系统中所有用户组信息都保存在<code>/etc/group</code>这个文件中，执行<code>vim /etc/group</code>可以看到如下内容：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_group.png" alt="CentOS_etc_group" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_group.png" alt="CentOS_etc_group" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>每一行的内容以冒号分隔，释义如下：</p>
 
@@ -1095,7 +1095,7 @@ pre[class*="language-"].line-numbers > code {
 
 <p>当前系统中所有用户组的密码信息都保存在<code>/etc/gshadow</code>这个文件中，执行<code>vim /etc/gshadow</code>可以看到如下内容：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_gshadow.png" alt="CentOS_etc_gshadow" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_gshadow.png" alt="CentOS_etc_gshadow" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>与用户组信息一样，每一行的内容以冒号分隔，释义如下：</p>
 
@@ -1128,7 +1128,7 @@ pre[class*="language-"].line-numbers > code {
 
 <p>当前系统中所有用户信息都保存在<code>/etc/passwd</code>这个文件中，执行<code>vim /etc/passwd</code>可以看到如下内容：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_passwd.png" alt="CentOS_etc_passwd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_passwd.png" alt="CentOS_etc_passwd" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>同样，每一行的内容以冒号分隔，释义如下：</p>
 
@@ -1167,7 +1167,7 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 
 <p>当前系统中所有用户信息都保存在<code>/etc/shadow</code>这个文件中，执行<code>vim /etc/shadow</code>可以看到如下内容：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_shadow.png" alt="CentOS_etc_shadow" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_shadow.png" alt="CentOS_etc_shadow" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>这个文件就没什么好说的了，其中第二个字段就表示用户密码，采用的是hash加盐的加密方式。</p>
 
@@ -1207,11 +1207,11 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 
 <p>这里我们所说的权限管理实际上就是指Linux的文件权限管理，因为Linux一切皆文件！下面我们就来看一下Linux文件权限是怎么管理的。执行<code>ls -l /etc</code>可以看到如下内容：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_ls_etc.png" alt="CentOS_ls_etc" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_ls_etc.png" alt="CentOS_ls_etc" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>图中红色框部分就表示对应文件的权限，详细定义如下：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/file_rights.png" alt="file_rights" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/file_rights.png" alt="file_rights" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <blockquote>
 <p>关于文件类型：除了上面图中展示的三种类型的文件之外还有其他类型的文件，但是，友情提示，如果你不是特别熟悉Linux的文件系统，那么当你看到除以上三种类型文件的时候请你绕着走！<br/>
@@ -1235,11 +1235,11 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 
 <p>权限是Linux文件系统的核心，本质目的还是为了安全，其实前面介绍完文件权限的时候大家对权限的作用就基本上心里有数了，这里我需要敲黑板的只有一个问题：<strong>“对文件有读写权限就能删除文件吗？？”</strong></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rm_test.png" alt="CentOS_rm_test" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rm_test.png" alt="CentOS_rm_test" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>从上图我们就可以看到，不是这样的，就算你对文件有读写执行的一切权利，也不代表你就能删除文件，主要原因跟Linux的文件系统和存储结构有关，简单的解释为你对这个文件的权限只是表示了你对这个文件内的数据所拥有的权限，而对于一切皆文件的Linux来说，这个文件本身实际上是存储在<code>/home/sands/test</code>文件夹下的，所以它其实是这个文件夹文件内的数据，要操作它那就得拥有这个文件夹的权限。</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_ll_test.png" alt="CentOS_ll_test" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_ll_test.png" alt="CentOS_ll_test" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <blockquote>
 <p>可以看到我们当前用户对<code>test</code>文件夹并不具备写权限，也就解释了为什么我们无法将这个文件夹里面的<code>test.sh</code>文件删掉了。</p>
@@ -1272,13 +1272,13 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 
 <p>说了这么多文件权限的东西，似乎我们还忽略了一点，就是如果我们直接创建一个文件，那么它的权限是什么呢？为什么是这样呢？</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_ll_664.png" alt="CentOS_ll_664" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_ll_664.png" alt="CentOS_ll_664" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>从上图可以看到，在非root用户下直接创建一个文件默认权限为664，下面我们就来解释一下这是为什么：</p>
 
 <p>在开始解释之前，我需要大家明白一个原则性问题，之前我们也提到过，对于Linux来说文件的最高权限是x执行，但是Linux认为这个最高权限太危险了，所以文件默认是不能新建为可执行文件的，必须手动赋予执行权限，这样一来文件默认的最大权限就只能是666了。那是不是说新建的文件默认权限就是666了呢？显然不是，这还得受一个叫作<code>umask</code>值的家伙的管制：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_umask.png" alt="CentOS_umask" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_umask.png" alt="CentOS_umask" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <blockquote>
 <p>第一位0：表示文件特殊权限<br/>
@@ -1287,7 +1287,7 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 
 <p>所以默认文件权限的具体计算方式如下图：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_file_default.png" alt="CentOS_file_default" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_file_default.png" alt="CentOS_file_default" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>现在我们知道了Linux文件的默认权限是这么来的，那其实文件夹默认权限也是同样的方式计算来的，但不同的是我们前面说过文件夹的最高权限是w写，所以Linux就认为文件夹的写并不具备什么危险，所以文件夹默认的最大权限就是777，所以计算默认权限的时候也应该用777来进行计算。</p>
 
@@ -1298,7 +1298,7 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 <li>永久修改：修改<code>/etc/profile</code>这个环境变量文件</li>
 </ul>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_etc_profile_umask.png" alt="CentOS_etc_profile_umask" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_etc_profile_umask.png" alt="CentOS_etc_profile_umask" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <h2 id="toc_39">七、Linux 软件安装管理</h2>
 
@@ -1314,7 +1314,7 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 <li>挂载光盘：<code>mount /dev/sr0 /media</code>表示将光盘挂载到<code>/media</code>目录下，如下图：</li>
 </ul>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_mount_sr0.png" alt="CentOS_mount_sr0" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_mount_sr0.png" alt="CentOS_mount_sr0" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <ul>
 <li>挂载优盘：先执行<code>fdisk -l</code>来查看优盘设备文件名，再执行<code>mount /dev/sdb1 /mnt/usb</code>来将文件名为sdb1的优盘挂载到mnt文件夹下的usb文件夹里</li>
@@ -1372,11 +1372,11 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 
 <p>命令很简单，但是过程一点都不简单，下面我们用一个小示例来看一下RPM包的安装过程：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_1.png" alt="CentOS_rpm_httpd_1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rpm_httpd_1.png" alt="CentOS_rpm_httpd_1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_2.png" alt="CentOS_rpm_httpd_2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rpm_httpd_2.png" alt="CentOS_rpm_httpd_2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_httpd_3.png" alt="CentOS_rpm_httpd_3" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rpm_httpd_3.png" alt="CentOS_rpm_httpd_3" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>从上面的安装过程中我们可以看到，RPM包之间还有依赖关系，而且错综复杂，难以捉摸，所以如果按照这种方式去装软件，那估计软件安装好黄花菜都凉了~</p>
 
@@ -1388,7 +1388,7 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 
 <p>yum是Redhat系列的Linux自带的软件安装工具（Debian系列是apt-get），yum源就是指存放所有软件包的服务器地址，它的默认配置文件为：<code>/etc/yum.repos.d/CentOS-Base.repo</code></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_yum_base.png" alt="CentOS_yum_base" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_yum_base.png" alt="CentOS_yum_base" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>配置文件中的每一段内容都相似，具体字段说明如下表：</p>
 
@@ -1440,7 +1440,7 @@ shell类型：用来指定用户登录时执行命令的方式，一般是bash</
 <li>挂载光盘：<code>mount /dev/sr0 /media</code></li>
 <li>使网络yum源失效：在上面配置文件介绍的时候我们知道，只需要将配置文件里容器的enabled值设置为0就可以了，但是默认配置文件中有好几个容器，每个都设置一遍比较麻烦，所以既然yum源的默认配置文件为<code>/etc/yum.repos.d/CentOS-Base.repo</code>，那么如果我将这个文件删掉它就不起作用了吧？这样是可以，但是我们说对于系统默认配置文件我们要本着<strong><u>只备份不删除</u></strong>的原则，所以我们只需要将这个文件改个名备份一下即可<code>mv CentOS-Base.repo CentOS-Base.repo.bak</code></li>
 <li>使光盘yum源生效：修改光盘的yum配置文件<code>/etc/yum.repos.d/CentOS-Media.repo</code>，如下图：
-<img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_yum_media.png" alt="CentOS_yum_media"/></li>
+<img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_yum_media.png" alt="CentOS_yum_media"/></li>
 </ul>
 
 <p>完成上述步骤后执行<code>yum list</code>即可验证本地yum源是否生效。</p>
@@ -1464,13 +1464,13 @@ RPM包安装的Apache手动启动的方式有两种：一种是安装好的可�
 
 <p>使用源码包安装之前必须保证系统已安装<code>gcc</code>：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_rpm_gcc.png" alt="CentOS_rpm_gcc" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_rpm_gcc.png" alt="CentOS_rpm_gcc" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>下载源码包，一般Linux的软件包都有对应的官方网站下载地址，我们下面以Apache软件来讲解，Apache 2.4下载地址为：<a href="http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz">http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz</a>，执行<code>wget http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.37.tar.gz</code>即可将软件源码包下载到当前路径下。</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_wget_1.png" alt="CentOS_wget_1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_wget_1.png" alt="CentOS_wget_1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_wget_2.png" alt="CentOS_wget_2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_wget_2.png" alt="CentOS_wget_2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <blockquote>
 <p>1.由于Apache 2.4依赖Apache的运行环境下的两个包 <a href="http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz">apr</a> 和 <a href="http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz">apt-util</a><br/>
@@ -1480,7 +1480,7 @@ RPM包安装的Apache手动启动的方式有两种：一种是安装好的可�
 
 <p>全部下载完成后将其一一解压缩到下载的目录下：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_tar_1.png" alt="CentOS_tar_1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_tar_1.png" alt="CentOS_tar_1" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>解压完成之后，首先我们要安装的是<code>apr</code>，所以需要进入到解压后的<code>apr-1.6.5</code>目录下，然后依次执行：</p>
 
@@ -1504,7 +1504,7 @@ RPM包安装的Apache手动启动的方式有两种：一种是安装好的可�
 
 <p>最后，我们进入解压好的<code>httpd-2.4.37</code>目录下：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_tar_2.png" alt="CentOS_tar_2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_tar_2.png" alt="CentOS_tar_2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>依次执行：</p>
 
@@ -1516,11 +1516,11 @@ RPM包安装的Apache手动启动的方式有两种：一种是安装好的可�
 
 <p>安装完成之后可以看到如下效果：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_apache2.png" alt="CentOS_apache2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_apache2.png" alt="CentOS_apache2" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 <p>执行<code>/usr/local/apache2/bin/apachectl start</code>即可开启Apache服务器，通过浏览器访问效果如下（关闭防火墙）：</p>
 
-<p><img src="http://pbe07x0ww.bkt.clouddn.com/CentOS_httpd_work.png" alt="CentOS_httpd_work" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
+<p><img src="https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_httpd_work.png" alt="CentOS_httpd_work" class="mw_img_center" style="display: block; clear:both; margin: 0 auto;"/></p>
 
 </div></body>
 
