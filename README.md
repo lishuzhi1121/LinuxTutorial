@@ -16,7 +16,7 @@
 
 那么这个时候另一个家伙出现了，*Linus Torvalds*，当时是芬兰赫尔辛基大学大三的大学生，他以Minix为模板，自己开发了一些软件和并且集中了当时网上呼声较高的一些补丁程序重新写了一个操作系统——Linux操作系统。
 
-![](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/Linus Torvalds.png)
+![Linus_Torvalds-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/Linus_Torvalds.png)
 
 Linus选择了芬兰的吉祥物企鹅作为该系统的标识，并在1991年的时候就将Linux操作系统发布了，短短20多年的时间，Linux系统就已经在服务器领域占据了举足轻重的地位。
 
