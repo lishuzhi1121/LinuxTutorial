@@ -684,7 +684,7 @@ yum安装命令为：`yum -y install 包名`，其中选项`-y`表示自动回�
 
 ![CentOS_wget_2-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_wget_2.png)
 
-> 1.由于Apache 2.4依赖Apache的运行环境下的两个包 [apr](http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz) 和 [apt-util](http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz)
+> 1.由于Apache 2.4依赖Apache的运行环境下的两个包 [apr](http://mirror.bit.edu.cn/apache//apr/apr-1.6.5.tar.gz) 和 [apt-util](http://apache.website-solution.net//apr/apr-util-1.6.1.tar.gz)
 > 2.所以采用同样的wget方式将其下载下来
 > 3.另外，Apache编译时还依赖了`pcre-config`，它属于`pcre-devel`，所以我们要使用`yum -y install pcre-devel`命令安装好这个依赖包
 
@@ -725,4 +725,6 @@ yum安装命令为：`yum -y install 包名`，其中选项`-y`表示自动回�
 执行`/usr/local/apache2/bin/apachectl start`即可开启Apache服务器，通过浏览器访问效果如下（关闭防火墙）：
 
 ![CentOS_httpd_work-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_httpd_work.png)
+
+## 八、Linux 防火墙 iptables规则
 
