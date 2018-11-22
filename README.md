@@ -6,6 +6,8 @@
 
 [TOC]
 
+# 入门篇
+
 ## 一、前世今生
 
 ![linux_icon-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/linux_icon.png)
@@ -726,5 +728,45 @@ yum安装命令为：`yum -y install 包名`，其中选项`-y`表示自动回�
 
 ![CentOS_httpd_work-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/CentOS_httpd_work.png)
 
-## 八、Linux 防火墙 iptables规则
+## 八、Linux 防火墙（iptables）
+
+### 1、关于防火墙
+
+首先，什么是防火墙？从逻辑上讲，防火墙可以大体分为主机防火墙和网络防火墙。主机防火墙针对于单个主机进行防护，而网络防火墙往往是处于网络入口或边缘，针对网络入口进行防护。网络防火墙和主机防火墙并不冲突，可以理解为网络防火墙主外（集体），主机防火墙主内（个人）。从物理上讲，防火墙又可分为硬件防火墙和软件防火墙。硬件防火墙在硬件级别就实现了部分防火墙功能，另一部分靠软件实现，性能高，成本也高。软件防火墙就是通过一些软件处理逻辑运行于通用硬件平台上的防火墙，性能低，成本也低。
+
+![Cisco_Firepower-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/Cisco_Firepower.png)
+
+### 2、关于iptables
+
+![iptables-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/iptables.png)
+
+**iptables** 其实并不是真正的防火墙，我们可以把它理解成客户端代理，用户通过这个代理将安全设定执行到对应的 **安全框架** 中，这个 **安全框架** 才是真正的防火墙 —— **netfilter** 。由于 **netfilter** 是位于内核空间的，而 **iptables** 是位于用户空间的一个命令，所以我们用它来操作 **netfilter** 。
+
+在CentOS中对应的命令和服务就是 **iptables** ，可以使用 `service iptables start` 来启动 **iptables** 服务，那么对应的就有 `service iptables stop` 停止和 `service iptables restart` 重启 **iptables** 服务。
+
+### 3、iptables规则组成
+
+可以使用 `iptables -L` 命令查看系统当前的iptables规则，如下图：
+
+![iptables-rule-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/iptables-rule.png)
+
+其实这段规则不太看得懂，因为它是来自于一个文件配置好系统识别的，iptables配置文件的位置为： `/etc/sysconfig/iptables`
+
+![iptables-file-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/iptables-file.png)
+
+要想看得懂这个文件，首先我们就要来看一下iptables的组成规则，iptables由 **四张表 + 五条链（hook point）+ 规则** 组成，释义如下：
+
+![iptables-chain-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/iptables-chain.png)
+
+看着这些规则可能还是不知道这个东西到底怎么配置，下面我们来讲一个场景：
+
+我们之前启动了Apache服务器之后需要把iptables防火墙关闭才能正常访问，但是这种操作跟 **“删库跑路”** 都一个性质的，肯定不能被允许，那么怎么办呢？这个时候我们就要来修改我们的iptables规则，实际上外面访问我们的Apache服务器时是访问我们的80端口，但是从默认的规则里我们看到并没有允许80端口的访问，所以我们可以采用命令 `iptables -I INPUT -p tcp --dport 80 -j ACCEPT` 来插入一条iptables规则，让80端口能够被访问。当然，我们也可以直接修改iptables对应的配置文件：
+
+![iptables-http-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/iptables-file-http.png)
+
+> 其中 `-I` 表示在最前面插入，`-A` 表示在最后面追加，iptables读取是按配置顺序的。
+
+**iptables** 规则可以说是非常强大，这里我们只做简单的端口拦截与放行使用介绍，后面用到的时候再做相关补充。
+
+# 实践篇
 
