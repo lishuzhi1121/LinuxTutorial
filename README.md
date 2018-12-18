@@ -858,8 +858,8 @@ FTP服务搭建完成之后我们可以使用浏览器来直接访问FTP服务�
 
 ![filezilla-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/filezilla.png)
 
-> 提示：
 > 如果出现无法上传文件的错误，请关闭 [SELinux](https://wiki.centos.org/zh/HowTos/SELinux) 安全：
+> 
 > 1、临时关闭(不用重启)
 > ```
 > # 查看SELinux状态
@@ -867,8 +867,11 @@ FTP服务搭建完成之后我们可以使用浏览器来直接访问FTP服务�
 > # 关闭
 > setenforce 0
 > ```
+> 
 > 2、修改配置文件（需要重启）：
+> 
 > ![SELINUX-disabled-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/SELINUX-disabled.png)
+> 
 > 所以常规做法是两个一起操作！
 
 ### 二、Web服务器（Tomcat）
