@@ -770,3 +770,86 @@ yum安装命令为：`yum -y install 包名`，其中选项`-y`表示自动回�
 
 # 实践篇
 
+## 一、FTP服务器（vsftpd）
+
+### 1、关于vsfptd
+vsftpd是用于UNIX系统（包括Linux）的GPL许可的FTP服务器。它安全、稳定且速度极快。vsftpd是一个成熟且值得信赖的文件传输解决方案。更多请查看： [vsftpd官网](https://security.appspot.com/vsftpd.html)
+
+### 2、安装并启动FTP服务
+
+使用 `yum` 安装 `vsftpd` ，执行 `yum install -y vsftpd` :
+
+安装完成后，启动FTP服务：
+
+`service vsftpd start`
+
+成果启动之后，可以看到系统已经监听了21端口：
+
+`netstat -ntlp | grep 21`
+
+此时，访问 `ftp://192.168.231.128` 就可以浏览机器上的 `/var/ftp` 目录了。
+
+### 3、配置FTP权限
+
+vsftpd的配置目录为 `/etc/vsftpd` ，包含下列配置文件：
+
+* vsftpd.conf 为主要配置文件
+* ftpusers 配置 **禁止** 访问FTP服务的用户列表
+* user_list 配置用户访问控制
+
+首先，我们需要阻止匿名访问和切换根目录。匿名访问和切换根目录都会给服务器带来安全风险，我们把这两个功能关闭，编辑 `/etc/vsftpd/vsftpd.conf` ，找到下面两处并修改：
+
+```
+# 禁用匿名用户
+anonymous_enable=NO
+# 禁止切换根目录
+chroot_local_user=YES
+```
+
+然后，我们来创建一个专门用于访问FTP服务的用户，用户名叫 `ftpuser` ：
+
+```
+useradd ftpuser
+```
+
+为用户 `ftpuser` 设置密码：
+
+```
+echo "ftpuser" | passwd ftpuser --stdin
+```
+
+限制该用户仅能通过 FTP 访问服务器，而不能直接登陆服务器：
+
+```
+usermod -s /sbin/nologin ftpuser
+```
+
+为用户分配主目录为 `/var/ftp` ，该目录不可上传文件，文件只能上传到 `/var/ftp/pub` 目录下：
+
+```
+# 设置用户的主目录
+usermod -d /var/ftp ftpuser
+# 设置访问权限
+chmod a-w /var/ftp && chmod -R 777 /var/ftp/pub
+# 创建登陆欢迎文件
+echo "Welcome to use my FTP service." > /var/ftp/index.html 
+```
+
+### 4、访问 FTP 服务
+
+FTP服务搭建完成之后我们可以使用浏览器来直接访问FTP服务：
+
+或者 Mac 上我推荐使用 [FileZilla](https://filezilla-project.org/) 这个FTP工具来连接FTP服务：
+
+
+提示：
+
+如果出现无法上传文件的错误，请关闭 [SELinux](https://wiki.centos.org/zh/HowTos/SELinux) 安全：
+
+```
+# 临时关闭(不用重启)
+setenforce 0
+```
+
+修改配置文件（需要重启）：
+
