@@ -815,6 +815,19 @@ chroot_local_user=YES
 
 ![vsftpd-conf-chroot-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/vsftpd-conf-chroot.png)
 
+> 除了以上几个简单配置之外，补充说明一点：
+> 如果线上防火墙想要设置的很严格的话，那么我们的FTP还需要配置传输模式与端口：
+> ```
+> # 设置为被动传输模式
+> pasv_enable=YES
+> # 设置数据传输最小端口
+> pasv_min_port=61001
+> # 设置数据传输最大端口
+> pasv_max_port=62000
+> ```
+> 关于FTP的传输模式：
+> 
+
 然后，我们来创建一个专门用于访问FTP服务的用户，用户名叫 `ftpuser` ：
 
 ```
