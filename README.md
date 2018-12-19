@@ -934,6 +934,15 @@ wget https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598
 
 Tomcat的启动依赖于JDK，所以在安装Tomcat之前得先完成我们上面的JDK环境安装。安装Tomcat也比较简单，直接到官网下载对应的安装包，然后解压缩到相应目录下即可。
 
-![]()
+![tomcat-7-download-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/tomcat-7-download.png)
 
+然后需要说明的是我们需要修改一下Tomcat的配置，使其默认支持UTF-8字符集编码，直接修改解压缩之后的conf目录下的server.xml，添加如下配置：
+
+![tomcat-conf-uri-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/tomcat-conf-uri.png)
+
+之后我们就可以启动Tomcat了，执行bin目录下的 `startup.sh` ，看到如下结果即为启动成功：
+
+![tomcat-start-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/tomcat-start.png)
+
+此时在浏览器中访问 `http://192.168.231.128:8080` 即可看到如下界面：
 
