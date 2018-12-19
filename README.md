@@ -920,11 +920,20 @@ wget https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598
 
 这个时候会发现链接地址其实变成了这样的： `https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm?AuthParam=1545193703_3bbf2633c3d9e7961bd8433738fe79ca` 就是在原来的链接后面加了个动态的 `AuthParam` ，使用这个链接去下载就可以了。下载完成后执行： `rpm -ivh jdk-8u191-linux-x64.rpm` 即可进行安装，默认会安装在 `/usr/java/jdk1.8.0_191-amd64` 这个目录下，所以我们还需要添加环境变量，以便使用：
 
-
+![vim-etc-profile-jdk-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/vim-etc-profile-jdk.png)
 
 > 添加完成之后执行一下： `source /etc/profile` 使环境变量生效
 
 最后，执行： `java -version` ，看到如下结果则说明JDK环境安装成功：
 
+![java-version-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/java-version.png)
+
+### 2、Tomcat下载安装
+
+[Apache Tomcat](http://tomcat.apache.org/) 是Apache软件基金会一款开源的 Java Servlet, JavaServer Pages, Java Expression Language 和 Java WebSocket 的技术实现。它同时支持HTTP协议，所以后端使用Java开发的网页一般都是选择使用Tomcat来部署应用。
+
+Tomcat的启动依赖于JDK，所以在安装Tomcat之前得先完成我们上面的JDK环境安装。安装Tomcat也比较简单，直接到官网下载对应的安装包，然后解压缩到相应目录下即可。
+
+![]()
 
 
