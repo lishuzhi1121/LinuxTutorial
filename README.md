@@ -952,10 +952,64 @@ Tomcat的启动依赖于JDK，所以在安装Tomcat之前得先完成我们上�
 
 MySQL是一个关系型数据库管理系统，由瑞典MySQL AB公司开发，目前属于Oracle公司旗下产品。MySQL使用的SQL语言是用于访问数据库的最常用标准化语言，由于其体积小、速度快、成本低并且开源等特点，一般中小型网站的开发都选择MySQL作为网站数据库。
 
+![mysql-index-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/mysql-index.png)
+
+### 1、MySQL安装与启动
+
+执行： `yum install -y mysql-server` 即可完成安装：
+
+![yum-install-mysql-server-1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/yum-install-mysql-server-1.png)
+
+![yum-install-mysql-server-2-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/yum-install-mysql-server-2.png)
+
+安装完成后建议将其设置为开机自启动： `chkconfig mysqld on` ，使用 `chkconfig --list mysqld` 命令查看到 2345 位为 ON 即可。
+
+![mysqld-on-start-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/mysqld-on-start.png)
+
+为了解决数据库中文乱码的问题，我们修改数据库配置文件： `/etc/my.cnf` ，插入 `default-character-set=utf8` ，如下图：
+
 ![]()
 
-### 1、MySQL安装
+最后，启动MySQL服务： `service mysqld start` ：
 
-执行： `yum install -y mysql-server` 即可安装。
+![]()
+
+### 2、MySQL 密码、用户、权限
+
+上面我们启动MySQL服务后直接使用 `mysql -u root` 即可登MySQL数据库，不需要任何密码，显然这是不合理的。
+
+所以第一步，我们就是要清理一下用户并且为 root 用户设置密码：
+
+```sql
+# 清理匿名用户
+delete from mysql.user where User="";
+# 设置 root 用户密码
+set password for root@localhost=password("root");
+set password for root@127.0.0.1=password("root");
+# 刷新权限
+flush privileges;
+```
+
+第二步，我们要插入一个新的用户，与Linux系统一样，我们尽量不要总是以 root 用户：
+
+```sql
+# 插入MySQL用户
+insert into mysql.user(Host,User,Password) values("localhost", "sands", password("sands"));
+insert into mysql.user(Host,User,Password) values("%", "sands", password("sands"));
+```
+
+第三步，我们创建一个数据库，并将该数据库所有权限赋予上面插入的新用户：
+
+```sql
+# 创建 database
+create database `sands_db` default character set utf8 collate utf8_general_ci;
+# 将创建的 database 下所有表的权限赋予上述用户
+grant all privileges on sands_db.* to sands@localhost identified by 'sands' with grant option;
+grant all privileges on sands_db.* to sands@% identified by 'sands' with grant option;
+# 刷新权限
+flush privileges;
+```
+
+
 
 
