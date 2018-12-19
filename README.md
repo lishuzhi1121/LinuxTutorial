@@ -876,3 +876,40 @@ FTP服务搭建完成之后我们可以使用浏览器来直接访问FTP服务�
 
 ### 二、Web服务器（Tomcat）
 
+说到Tomcat就不得不提一下强大的Java开发语言，以示尊重。所以在正式开始介绍Tomcat之前，我们先来安装一下Java开发环境JDK（Java Development Kit），打开 [Oracle官网](https://www.oracle.com/index.html) 找到 [Java SE下载页](https://www.oracle.com/technetwork/java/javase/downloads/index.html) ，当前最新版本是 JDK 11，但是我们依然不选择这个版本，还是那句线上我们要本着 **“猥琐发育别浪的原则”** ，所以我们选择下面的 JDK 8。
+
+![]()
+
+点击 “DOWNLOAD” 之后就看到了如下界面：
+
+![]()
+
+这里首先我们要选择接受证书许可（官方，你懂的，不接受也不行），然后选择我们需要的 **“Linux x64”** 版本对应的rpm包，下载完成后可以使用我们上面说到的FTP工具传输到我们的Linux服务器上。但是！！！难道就不能直接在Linux系统中去下载吗？？？
+
+于是乎我们就选择了常规操作，将我们要下载的rpm包对应的链接地址复制下来：
+
+![]()
+
+大概是这样的 `https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm` ，然后使用 `wget` 命令来下载：
+
+
+```
+wget https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm
+```
+
+于是命令执行也正常了，结果也出来了：
+
+![]()
+
+可是我们看到怎么就5.2k的大小呢？这很明显不对啊，所以我们来查看一下这个文件的内容：
+
+![]()
+
+搜噶，看到这里就清楚了，其实这并没有下载我们需要的JDK，而只是下载了对应的网页源代码，那么问题来了，怎么下载我们需要的JDK安装包呢？？
+
+请注意下面我要进行一波骚操作了，这个时候我们选择让浏览器去下载，但是当浏览器开始下载的时候我们将其 **暂停** 下来，然后选择 **显示全部** 就可以查看到当前正在下载的任务列表：
+
+同时这里也会有一个文件对应的链接，我们选择复制这个链接地址：
+
+
+这个时候会发现链接地址其实变成了这样的： `https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm?AuthParam=1545193703_3bbf2633c3d9e7961bd8433738fe79ca` 就是在原来的链接后面加了个动态的 `AuthParam` 。使用这个链接去下载就可以了。
