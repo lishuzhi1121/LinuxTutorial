@@ -946,3 +946,16 @@ Tomcat的启动依赖于JDK，所以在安装Tomcat之前得先完成我们上�
 
 此时在浏览器中访问 `http://192.168.231.128:8080` 即可看到如下界面：
 
+![tomcat-access-test-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/tomcat-access-test.png)
+
+## 三、数据库 MySQL
+
+MySQL是一个关系型数据库管理系统，由瑞典MySQL AB公司开发，目前属于Oracle公司旗下产品。MySQL使用的SQL语言是用于访问数据库的最常用标准化语言，由于其体积小、速度快、成本低并且开源等特点，一般中小型网站的开发都选择MySQL作为网站数据库。
+
+![]()
+
+### 1、MySQL安装
+
+执行： `yum install -y mysql-server` 即可安装。
+
+
