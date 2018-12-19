@@ -968,11 +968,11 @@ MySQL是一个关系型数据库管理系统，由瑞典MySQL AB公司开发，�
 
 为了解决数据库中文乱码的问题，我们修改数据库配置文件： `/etc/my.cnf` ，插入 `default-character-set=utf8` ，如下图：
 
-![]()
+![vim-mycnf-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/vim-mycnf.png)
 
 最后，启动MySQL服务： `service mysqld start` ：
 
-![]()
+![service-mysqld-start-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/service-mysqld-start.png)
 
 ### 2、MySQL 密码、用户、权限
 
@@ -1010,6 +1010,7 @@ grant all privileges on sands_db.* to sands@% identified by 'sands' with grant o
 flush privileges;
 ```
 
+## 四、反向代理与负载均衡服务器（NGINX）
 
 
 
