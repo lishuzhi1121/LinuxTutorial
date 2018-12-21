@@ -1073,11 +1073,11 @@ enabled=1
 
 NGINX的启动非常简单，执行安装路径下的 `sbin/nginx` 可执行文件即可启动：
 
-![]()
+![nginx-start-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/nginx-start.png)
 
 启动后打开浏览器访问：`http://192.168.231.128:80` 看到如下页面表示nginx服务正常：
 
-![]()
+![nginx-index-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/nginx-index.png)
 
 NGINX其他常用命令：
 
