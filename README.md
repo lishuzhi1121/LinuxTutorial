@@ -1023,7 +1023,77 @@ grant all privileges on sands_db.* to sands@% identified by 'sands' with grant o
 flush privileges;
 ```
 
+> 删除数据库： `drop database db_name`
+
 ## 四、反向代理与负载均衡服务器（NGINX）
 
+[NGINX](https://nginx.org/en/) 是一款开源的内存占用小，稳定性高，性能强大的HTTP和反向代理服务器，邮件代理服务器以及通用的TCP/UDP代理服务器。
+
+### 1、NGINX 下载安装
+
+直接从NGINX官网即可 [下载](https://nginx.org/en/download.html) 到稳定版本（Stable version）的源码包，然后按照我们之前的软件安装章节中说到的源码包安装步骤即可完成安装：
+
+```sh
+# 下载源码包
+wget https://nginx.org/download/nginx-1.14.2.tar.gz
+# 解压缩
+tar -zxvf nginx-1.14.2.tar.gz
+# 进入解压后的目录
+cd nginx-1.14.2
+# 执行configure
+./configure --prefix=/usr/local/nginx
+# 编译
+make
+# 安装
+make install
+```
+
+> 注意：NGINX需要依赖gcc、pcre-devel、zlib-devel，请先使用yum将依赖安装好。
+
+完成之后nginx就安装在了 `/usr/local/nginx` 目录下。
+
+当然了，你也可以选择使用 `yum` 来快速安装，但是遗憾的是各种yum源默认都是没有nginx的，所以你需要自己添加nginx的yum源：
+
+```sh
+# 创建、编辑nginx.repo
+vim /etc/yum.repos.d/nginx.repo
+# 写入如下内容
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/OS/OSRELEASE/$basearch/
+gpgcheck=0
+enabled=1
+```
+
+> 根据具体使用的系统情况，替换其中的 “OS” 为 “rhel” 或者 “centos” ，并且对于6.x或者7.x版本将 “OSRELEASE” 替换为 “6” 或者 “7” 。
+
+添加完成yum源之后就可以直接使用yum安装了，这个比较简单，就不过多赘述了。
+
+### 2、NGINX的启动与常用命令
+
+NGINX的启动非常简单，执行安装路径下的 `sbin/nginx` 可执行文件即可启动：
+
+![]()
+
+启动后打开浏览器访问：`http://192.168.231.128:80` 看到如下页面表示nginx服务正常：
+
+![]()
+
+NGINX其他常用命令：
+
+```sh
+# 测试配置文件是否合法
+./sbin/nginx -t
+# 重启NGINX
+./sbin/nginx -s reload
+# 停止NGINX
+./sbin/nginx -s stop/quit
+```
+
+> 补充说明：
+> 查看进程命令：`ps -ef | grep nginx`
+> 平滑重启：`kill -HUP 【NGINX主进程号（即PID）】`
+
+### 3、NGINX 反向代理配置
 
 
