@@ -1216,8 +1216,16 @@ server {
 
 别忘了上面我们有一个问题还没有解决，就是负责均衡服务器单点故障的问题，要想解决这个问题，我们可以将第二个负载均衡服务器连接到第一个上，从而形成一个负载均衡服务器集群。
 
+![load-balancer-cluster-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/load-balancer-cluster.png)
 
 当主负载均衡服务器发生了故障，就将用户请求转到第二个负载均衡服务器上，但是这里有另外一个问题，DNS更改通常需要较长的时间才能生效，因此我们需要一个能灵活解决IP地址重映射的方法，比如：浮动IP（Floating IP），这样域名可以保持解析到相同的IP，而IP自身能在服务器之间移动。
 
 一个使用浮动 IP 的负载均衡架构示意图：
 
+![floating-ip-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/floating-ip.gif)
+
+通过浮动IP加负载均衡服务器集群就可以解决绝大部分单点故障的问题了。
+
+## 五、Java 用户系统项目实战
+
+未完待续……
