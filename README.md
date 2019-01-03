@@ -1194,7 +1194,7 @@ server {
 
 ![load-balancing-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/load-balancing.png)
 
-从图里可以看到，用户访问负载均衡服务器，再由负载均衡服务器将请求转发给后端服务器。在这种情况下，单点故障现在转移到负载均衡器上了。我们暂且先不讨论如何解决这个问题，我们先来看一下常用的几种负载均衡策略：
+从图里可以看到，用户访问负载均衡服务器，再由负载均衡服务器将请求转发给后端服务器。在这种情况下，单点故障现在转移到负载均衡服务器上了。我们暂且先不讨论如何解决这个问题，我们先来看一下常用的几种负载均衡策略：
 
 * **Round Robin（轮询）：** 为第一个请求选择列表中的第一个服务器，然后按顺序向下移动列表直到结尾，然后循环。
 * **Least Connections（最小连接）：** 优先选择连接数最少的服务器，在普遍会话较长的情况下推荐使用。
@@ -1202,4 +1202,22 @@ server {
 
 以服务转发为例的 NGINX 负载均衡配置如下：
 
+在http节点下配置好负载均衡池和相应策略，下图没有指定策略则默认为轮询策略：
+
+![nginx-upstream-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/nginx-upstream.png)
+
+然后在server节点中使用负载均衡池：
+
+![nginx-proxy-pass-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/nginx-proxy-pass.png)
+
+以上配置其实是将 `www.sands.com` 的请求转发到了本机起的三个 `Tomcat` 上，多次刷新就会看到轮询访问到三个不同版本的Tomcat。
+
+到这里为止，NGINX的负载均衡也就说完了，至于最小连接数策略和IP-hash策略就留给各位自行实践了。
+
+别忘了上面我们有一个问题还没有解决，就是负责均衡服务器单点故障的问题，要想解决这个问题，我们可以将第二个负载均衡服务器连接到第一个上，从而形成一个负载均衡服务器集群。
+
+
+当主负载均衡服务器发生了故障，就将用户请求转到第二个负载均衡服务器上，但是这里有另外一个问题，DNS更改通常需要较长的时间才能生效，因此我们需要一个能灵活解决IP地址重映射的方法，比如：浮动IP（Floating IP），这样域名可以保持解析到相同的IP，而IP自身能在服务器之间移动。
+
+一个使用浮动 IP 的负载均衡架构示意图：
 
