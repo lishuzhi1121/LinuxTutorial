@@ -1122,3 +1122,67 @@ NGINX其他常用命令：
 
 NGINX的配置文件路径为其安装目录下的 `nginx/conf/nginx.conf` ：
 
+![nginx-conf1-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/nginx-conf1.png)
+
+![nginx-conf2-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/nginx-conf2.png)
+
+以上是部分配置截图，这里我们主要看 `server` 节点里的配置，我们把每一个 `server` 叫一个虚拟主机，为了方便理解，我们把它看成是一个server对应一个域名的请求代理。例如图上配置的大致意思是：监听80端口，如果遇到localhost(127.0.0.1)的请求将其定位到html目录下，并且如果有index.html或者index.htm则返回index页面。这个配置文件里的server可以写很多，根据需要加就可以了，但是我们一般不这么干，这里要注意一下图上的最后，我们添加了一行：
+
+```sh
+###################################################
+include vhost/*.conf;
+###################################################
+```
+
+vhost（virtual host的简写）是我们接下来要在nginx.conf同级目录里创建的一个文件夹，里面会放我们需要添加的虚拟主机对应的server节点配置文件，例如：我们希望访问 `www.mobpods.com` 的时候能够访问到我们的 `Tomcat` 上，那么我们就会创建一个 `www.mobpods.com.conf` 的文件（以server_name命名的.conf文件），然后写入如下内容：
+
+```
+server {
+    listen 80;
+    autoindex on;
+    server_name www.mobpods.com;
+    access_log /usr/local/nginx/logs/access.log combined;
+    index index.html index.htm index.jsp index.php;
+
+    if ( $query_string ~* ".*[\;'\<\>].*" ) {
+        return 404;
+    }
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        add_header Access-Control-Allow-Origin *;
+    }
+}
+```
+
+> 监听80端口，当遇到www.mobpods.com的请求时将它转发到本地的8080端口（其实就是Tomcat）上
+
+这就是NGINX反向代理配置的第一种，服务转发，也是最常用的一种。这里再给大家介绍另外一种也比较常用的反向代理配置：
+
+```
+server {
+    listen 80;
+    autoindex on;
+    server_name image.mobpods.com;
+    access_log /usr/local/nginx/logs/access.log combined;
+    index index.html index.htm index.jsp index.php;
+
+    if ( $query_string ~* ".*[\;'\<\>].*" ) {
+        return 404;
+    }
+    location / {
+        root /ftpfile/images;
+        add_header Access-Control-Allow-Origin *;
+    }
+}
+```
+
+这种配置是直接转发到具体目录的，主要用于访问静态资源，比如一些商品图片我们后台管理时通过FTP上传到服务器，那么前台访问的时候就可以直接通过一个指定的域名访问过来了。
+
+4、NGINX 负载均衡
+
+[负载平衡（Load balancing）](https://zh.wikipedia.org/wiki/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1) 是一种计算机技术，用来在多个计算机（计算机集群）、网络连接、CPU、磁碟驱动器或其他资源中分配负载，以达到最佳化资源使用、最大化吞吐率、最小化响应时间、同时避免过载的目的。
+
+负载均衡是高可用网络基础架构的关键组件，通常用于将工作负载分布到多个服务器来提高网站、应用、数据库或其他服务的性能和可靠性。
+
+一个没有负载均衡的Web服务架构类似下面这样：
+
