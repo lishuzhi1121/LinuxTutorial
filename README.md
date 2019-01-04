@@ -826,7 +826,9 @@ chroot_local_user=YES
 > pasv_max_port=62000
 > ```
 > 关于FTP的传输模式：
-> 
+> * 主动模式（PORT，pasv_enable=NO）的连接过程是：客户端向服务器的FTP端口（默认21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据时，客户端在命令链路上用PORT命令告诉服务器：“我打开了xx端口，你过来连接我”，于是服务器从20端口向客户端的xx端口发送连接请求，建立一条数据链路来传送数据。
+> * 被动模式（PASV，pasv_enable=YES）的连接过程是：客户端向服务器的FTP端口（默认是21）发送连接请求，服务器接受连接，建立一条命令链路。当需要传送数据时，服务器在命令链路上用PASV命令告诉客户端：“我打开了xx端口，你过来连接我”。于是客户端向服务器的xx端口发送连接请求，建立一条数据链路来传送数据。
+> 从上面可以看出，两种方式的命令链路连接方法是一样的，而数据链路的建立方法就完全不同。而FTP的复杂性就在于此。
 
 然后，我们来创建一个专门用于访问FTP服务的用户，用户名叫 `ftpuser` ：
 
@@ -881,7 +883,7 @@ FTP服务搭建完成之后我们可以使用浏览器来直接访问FTP服务�
 > setenforce 0
 > ```
 > 
-> 2、修改配置文件（需要重启）：
+> 2、修改配置文件 `/etc/sysconfig/selinux`（需要重启）：
 > 
 > ![SELINUX-disabled-c](https://raw.githubusercontent.com/lishuzhi1121/LinuxTutorial/master/images/SELINUX-disabled.png)
 > 
@@ -1016,11 +1018,24 @@ insert into mysql.user(Host,User,Password) values("%", "sands", password("sands"
 ```sql
 # 创建 database
 create database `sands_db` default character set utf8 collate utf8_general_ci;
-# 将创建的 database 下所有表的权限赋予上述用户
-grant all privileges on sands_db.* to sands@localhost identified by 'sands' with grant option;
-grant all privileges on sands_db.* to sands@% identified by 'sands' with grant option;
 # 刷新权限
 flush privileges;
+# 将创建的 database 下所有表的权限赋予上述用户
+grant all privileges on sands_db.* to sands@'localhost' identified by 'sands' with grant option;
+grant all privileges on sands_db.* to sands@'%' identified by 'sands' with grant option;
+# 刷新权限
+flush privileges;
+# 创建数据表
+CREATE TABLE IF NOT EXISTS `user_tbl`(
+   `id` INT UNSIGNED AUTO_INCREMENT,
+   `name` VARCHAR(50) NOT NULL,
+   `gender` TINYINT NOT NULL,
+   `age` TINYINT NOT NULL,
+   `birthday` DATE,
+   `create_at` DATE,
+   `update_at` DATE,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
 > 删除数据库： `drop database db_name`
